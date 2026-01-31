@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -703,7 +702,7 @@
         <div class="page active" id="loginPage">
             <div class="login-container">
                 <h2>
-                    <img class="brand-logo-img" src="file:///C:/Users/Albob/EGY-FORNTOX/WhatsApp%20Image%202026-01-30%20at%2012.35.15%20AM-Photoroom.png" alt="ToxiTrack logo">
+                    <img class="brand-logo-img" src="logo.png" alt="ToxiTrack logo">
                     <span class="brand-text">ToxiTrack</span>
                 </h2>
                 <p style="color: #7f8c8d; margin-bottom: 30px;">نظام إدارة العينات السُمية الجنائية</p>
@@ -735,7 +734,7 @@
         <!-- الصفحة الرئيسية -->
         <div class="page" id="mainPage">
             <div class="navbar">
-                <div class="logo"><img class="brand-logo-img" src="file:///C:/Users/Albob/EGY-FORNTOX/WhatsApp%20Image%202026-01-30%20at%2012.35.15%20AM-Photoroom.png" alt="ToxiTrack logo"><span class="brand-text">ToxiTrack</span></div>
+                <div class="logo"><img class="brand-logo-img" src="logo.png" alt="ToxiTrack logo"><span class="brand-text">ToxiTrack</span></div>
                 <div class="nav-buttons">
                     <button class="nav-btn" onclick="showNotification('مرحباً بك في النظام')">الإشعارات</button>
                     <button class="nav-btn" onclick="logout()">تسجيل الخروج</button>
@@ -800,7 +799,7 @@
         <!-- صفحة تسجيل العينات -->
         <div class="page" id="sampleRegisterPage">
             <div class="navbar">
-                <div class="logo"><img class="brand-logo-img" src="file:///C:/Users/Albob/EGY-FORNTOX/WhatsApp%20Image%202026-01-30%20at%2012.35.15%20AM-Photoroom.png" alt="ToxiTrack logo"><span class="brand-text">تسجيل العينات</span></div>
+                <div class="logo"><img class="brand-logo-img" src="logo.png" alt="ToxiTrack logo"><span class="brand-text">تسجيل العينات</span></div>
                 <div class="nav-buttons">
                     <button class="nav-btn" onclick="navigateToPage('mainPage')">العودة للرئيسية</button>
                     <button class="nav-btn" onclick="logout()">تسجيل الخروج</button>
@@ -887,7 +886,7 @@
         <!-- صفحة قائمة العينات -->
         <div class="page" id="samplesListPage">
             <div class="navbar">
-                <div class="logo"><img class="brand-logo-img" src="file:///C:/Users/Albob/EGY-FORNTOX/WhatsApp%20Image%202026-01-30%20at%2012.35.15%20AM-Photoroom.png" alt="ToxiTrack logo"><span class="brand-text">قائمة العينات</span></div>
+                <div class="logo"><img class="brand-logo-img" src="logo.png" alt="ToxiTrack logo"><span class="brand-text">قائمة العينات</span></div>
                 <div class="nav-buttons">
                     <button class="nav-btn" onclick="navigateToPage('mainPage')">العودة للرئيسية</button>
                     <button class="nav-btn" onclick="refreshSamplesList()">تحديث</button>
@@ -924,7 +923,7 @@
         <!-- صفحة إدارة النظام -->
         <div class="page" id="adminPage">
             <div class="navbar">
-                <div class="logo"><img class="brand-logo-img" src="file:///C:/Users/Albob/EGY-FORNTOX/WhatsApp%20Image%202026-01-30%20at%2012.35.15%20AM-Photoroom.png" alt="ToxiTrack logo"><span class="brand-text">إدارة النظام</span></div>
+                <div class="logo"><img class="brand-logo-img" src="logo.png" alt="ToxiTrack logo"><span class="brand-text">إدارة النظام</span></div>
                 <div class="nav-buttons">
                     <button class="nav-btn" onclick="navigateToPage('mainPage')">العودة للرئيسية</button>
                     <button class="nav-btn" onclick="logout()">تسجيل الخروج</button>
@@ -1052,7 +1051,7 @@
         <!-- صفحات أخرى (مبسطة) -->
         <div class="page" id="chainCustodyPage">
             <div class="navbar">
-                <div class="logo"><img class="brand-logo-img" src="file:///C:/Users/Albob/EGY-FORNTOX/WhatsApp%20Image%202026-01-30%20at%2012.35.15%20AM-Photoroom.png" alt="ToxiTrack logo"><span class="brand-text">سلسلة الحراسة</span></div>
+                <div class="logo"><img class="brand-logo-img" src="logo.png" alt="ToxiTrack logo"><span class="brand-text">سلسلة الحراسة</span></div>
                 <div class="nav-buttons">
                     <button class="nav-btn" onclick="navigateToPage('mainPage')">العودة للرئيسية</button>
                 </div>
@@ -1065,7 +1064,7 @@
 
         <div class="page" id="analysisPage">
             <div class="navbar">
-                <div class="logo"><img class="brand-logo-img" src="file:///C:/Users/Albob/EGY-FORNTOX/WhatsApp%20Image%202026-01-30%20at%2012.35.15%20AM-Photoroom.png" alt="ToxiTrack logo"><span class="brand-text">التحليل والتحقق</span></div>
+                <div class="logo"><img class="brand-logo-img" src="logo.png" alt="ToxiTrack logo"><span class="brand-text">التحليل والتحقق</span></div>
                 <div class="nav-buttons">
                     <button class="nav-btn" onclick="navigateToPage('mainPage')">العودة للرئيسية</button>
                 </div>
@@ -1258,19 +1257,10 @@
         </div>
     </div>
 
-    <!-- نافذة عرض تفاصيل العينة -->
-    <div id="viewSampleModal" class="modal" role="dialog" aria-hidden="true" aria-label="عرض تفاصيل العينة">
-        <div class="modal-content">
-            <span class="close" onclick="closeViewSampleModal()">&times;</span>
-            <h2>عرض تفاصيل العينة</h2>
-            <pre id="viewSampleContent" style="white-space:pre-wrap; font-family:inherit;">تفاصيل العينة...</pre>
-            <div class="action-buttons" style="justify-content:flex-end; margin-top:15px;">
-                <button class="btn btn-primary" onclick="closeViewSampleModal()">إغلاق</button>
-            </div>
-        </div>
-    </div>
-
     <script>
+        // تحديث السنة الحالية في الفوتر
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
         // قاعدة البيانات المحلية
         class ToxiTrackDB {
             constructor() {
@@ -2539,5 +2529,4 @@
         updateAgencyNames();
     </script>
 </body>
-
 </html>
