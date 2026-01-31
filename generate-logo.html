@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            margin: 0;
+            background: #f0f0f0;
+        }
+        
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="200" height="200"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // رسم الخلفية الدائرية
+        ctx.fillStyle = '#667eea';
+        ctx.beginPath();
+        ctx.arc(100, 100, 96, 0, Math.PI * 2);
+        ctx.fill();
+
+        // رسم الحدود
+        ctx.strokeStyle = '#ffffff';
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.arc(100, 100, 96, 0, Math.PI * 2);
+        ctx.stroke();
+
+        // رسم القارورة
+        ctx.fillStyle = '#ffffff';
+
+        // الجزء العلوي (الفم)
+        ctx.fillRect(70, 30, 60, 24);
+        ctx.beginPath();
+        ctx.arc(100, 54, 30, 0, Math.PI * 2);
+        ctx.fill();
+
+        // الرقبة
+        ctx.fillRect(84, 54, 32, 16);
+
+        // الجسم (القارورة)
+        ctx.beginPath();
+        ctx.moveTo(80, 70);
+        ctx.quadraticCurveTo(70, 100, 70, 130);
+        ctx.quadraticCurveTo(70, 150, 84, 160);
+        ctx.lineTo(116, 160);
+        ctx.quadraticCurveTo(130, 150, 130, 130);
+        ctx.quadraticCurveTo(130, 100, 120, 70);
+        ctx.closePath();
+        ctx.fill();
+
+        // النقطة الزخرفية
+        ctx.fillStyle = '#764ba2';
+        ctx.beginPath();
+        ctx.arc(100, 110, 8, 0, Math.PI * 2);
+        ctx.fill();
+
+        // تحميل الصورة
+        setTimeout(() => {
+            const link = document.createElement('a');
+            link.href = canvas.toDataURL('image/png');
+            link.download = 'logo.png';
+            link.click();
+        }, 100);
+    </script>
+</body>
+
+</html>
