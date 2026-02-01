@@ -1,0 +1,131 @@
+const express = require('express');
+const path = require('path');
+const fs = require('fs');
+const app = express();
+const PORT = 3000;
+
+// Middleware
+app.use(express.static(path.join(__dirname, '.')));
+app.use(express.json());
+
+// Routes
+
+// صفحة الرئيسية
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '1111.html'));
+});
+
+// الحصول على بيانات المستخدمين
+app.get('/api/users', (req, res) => {
+    try {
+        const usersData = fs.readFileSync(path.join(__dirname, 'users.json'), 'utf8');
+        res.json(JSON.parse(usersData));
+    } catch (error) {
+        res.status(500).json({ error: 'خطأ في قراءة بيانات المستخدمين' });
+    }
+});
+
+// إضافة مستخدم جديد
+app.post('/api/users', (req, res) => {
+    try {
+        const usersData = fs.readFileSync(path.join(__dirname, 'users.json'), 'utf8');
+        let users = JSON.parse(usersData);
+
+        // التحقق من عدم وجود المستخدم
+        if (users.some(u => u.username === req.body.username)) {
+            return res.status(400).json({ error: 'المستخدم موجود بالفعل' });
+        }
+
+        // إضافة المستخدم الجديد
+        const newUser = {
+            ...req.body,
+            createdAt: new Date().toISOString(),
+            status: 'active'
+        };
+        users.push(newUser);
+
+        // حفظ البيانات
+        fs.writeFileSync(path.join(__dirname, 'users.json'), JSON.stringify(users, null, 2));
+        res.status(201).json(newUser);
+    } catch (error) {
+        res.status(500).json({ error: 'خطأ في إضافة المستخدم' });
+    }
+});
+
+// تحديث بيانات المستخدم
+app.put('/api/users/:username', (req, res) => {
+    try {
+        const usersData = fs.readFileSync(path.join(__dirname, 'users.json'), 'utf8');
+        let users = JSON.parse(usersData);
+
+        const userIndex = users.findIndex(u => u.username === req.params.username);
+        if (userIndex === -1) {
+            return res.status(404).json({ error: 'المستخدم غير موجود' });
+        }
+
+        // تحديث البيانات
+        users[userIndex] = {
+            ...users[userIndex],
+            ...req.body,
+            lastUpdated: new Date().toISOString()
+        };
+
+        // حفظ البيانات
+        fs.writeFileSync(path.join(__dirname, 'users.json'), JSON.stringify(users, null, 2));
+        res.json(users[userIndex]);
+    } catch (error) {
+        res.status(500).json({ error: 'خطأ في تحديث بيانات المستخدم' });
+    }
+});
+
+// حذف المستخدم
+app.delete('/api/users/:username', (req, res) => {
+    try {
+        const usersData = fs.readFileSync(path.join(__dirname, 'users.json'), 'utf8');
+        let users = JSON.parse(usersData);
+
+        const userIndex = users.findIndex(u => u.username === req.params.username);
+        if (userIndex === -1) {
+            return res.status(404).json({ error: 'المستخدم غير موجود' });
+        }
+
+        // تعطيل المستخدم بدلاً من حذفه
+        users[userIndex].status = 'inactive';
+
+        // حفظ البيانات
+        fs.writeFileSync(path.join(__dirname, 'users.json'), JSON.stringify(users, null, 2));
+        res.json({ message: 'تم تعطيل المستخدم بنجاح' });
+    } catch (error) {
+        res.status(500).json({ error: 'خطأ في حذف المستخدم' });
+    }
+});
+
+// صفحة الخطأ 404
+app.use((req, res) => {
+    res.status(404).send(`
+        <!DOCTYPE html>
+        <html lang="ar" dir="rtl">
+        <head>
+            <meta charset="UTF-8">
+            <title>الصفحة غير موجودة</title>
+            <style>
+                body { font-family: Arial; text-align: center; padding: 50px; background: #f0f2f5; }
+                h1 { color: #e74c3c; }
+            </style>
+        </head>
+        <body>
+            <h1>❌ الصفحة غير موجودة</h1>
+            <p>الصفحة التي تبحث عنها غير موجودة.</p>
+            <a href="/">العودة للرئيسية</a>
+        </body>
+        </html>
+    `);
+});
+
+// بدء السيرفر
+app.listen(PORT, () => {
+    console.log('✅ ToxiTrack Server Started!');
+    console.log(`📡 Open: http://localhost:${PORT}`);
+    console.log(`📡 Open: http://localhost:${PORT}/1111.html`);
+    console.log('Press Ctrl+C to stop the server');
+});
