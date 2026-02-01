@@ -703,7 +703,8 @@
         <div class="page active" id="loginPage">
             <div class="login-container">
                 <h2>
-                    <img class="brand-logo-img" src="file:///C:/Users/Albob/EGY-FORNTOX/logo.png" alt="ToxiTrack logo">
+                    <!-- شعار معدل -->
+                    <img class="brand-logo-img" src="logo.png" alt="ToxiTrack logo">
                     <span class="brand-text">ToxiTrack</span>
                 </h2>
                 <p style="color: #7f8c8d; margin-bottom: 30px;">نظام إدارة العينات السُمية الجنائية</p>
@@ -735,7 +736,11 @@
         <!-- الصفحة الرئيسية -->
         <div class="page" id="mainPage">
             <div class="navbar">
-                <div class="logo"><img class="brand-logo-img" src="file:///C:/Users/Albob/EGY-FORNTOX/logo.png" alt="ToxiTrack logo"><span class="brand-text">ToxiTrack</span></div>
+                <div class="logo">
+                    <!-- شعار معدل -->
+                    <img class="brand-logo-img" src="logo.png" alt="ToxiTrack logo">
+                    <span class="brand-text">ToxiTrack</span>
+                </div>
                 <div class="nav-buttons">
                     <button class="nav-btn" onclick="showNotification('مرحباً بك في النظام')">الإشعارات</button>
                     <button class="nav-btn" onclick="logout()">تسجيل الخروج</button>
@@ -800,7 +805,11 @@
         <!-- صفحة تسجيل العينات -->
         <div class="page" id="sampleRegisterPage">
             <div class="navbar">
-                <div class="logo"><img class="brand-logo-img" src="file:///C:/Users/Albob/EGY-FORNTOX/logo.png" alt="ToxiTrack logo"><span class="brand-text">تسجيل العينات</span></div>
+                <div class="logo">
+                    <!-- شعار معدل -->
+                    <img class="brand-logo-img" src="logo.png" alt="ToxiTrack logo">
+                    <span class="brand-text">تسجيل العينات</span>
+                </div>
                 <div class="nav-buttons">
                     <button class="nav-btn" onclick="navigateToPage('mainPage')">العودة للرئيسية</button>
                     <button class="nav-btn" onclick="logout()">تسجيل الخروج</button>
@@ -887,7 +896,11 @@
         <!-- صفحة قائمة العينات -->
         <div class="page" id="samplesListPage">
             <div class="navbar">
-                <div class="logo"><img class="brand-logo-img" src="file:///C:/Users/Albob/EGY-FORNTOX/logo.png" alt="ToxiTrack logo"><span class="brand-text">قائمة العينات</span></div>
+                <div class="logo">
+                    <!-- شعار معدل -->
+                    <img class="brand-logo-img" src="logo.png" alt="ToxiTrack logo">
+                    <span class="brand-text">قائمة العينات</span>
+                </div>
                 <div class="nav-buttons">
                     <button class="nav-btn" onclick="navigateToPage('mainPage')">العودة للرئيسية</button>
                     <button class="nav-btn" onclick="refreshSamplesList()">تحديث</button>
@@ -924,7 +937,11 @@
         <!-- صفحة إدارة النظام -->
         <div class="page" id="adminPage">
             <div class="navbar">
-                <div class="logo"><img class="brand-logo-img" src="file:///C:/Users/Albob/EGY-FORNTOX/logo.png" alt="ToxiTrack logo"><span class="brand-text">إدارة النظام</span></div>
+                <div class="logo">
+                    <!-- شعار معدل -->
+                    <img class="brand-logo-img" src="logo.png" alt="ToxiTrack logo">
+                    <span class="brand-text">إدارة النظام</span>
+                </div>
                 <div class="nav-buttons">
                     <button class="nav-btn" onclick="navigateToPage('mainPage')">العودة للرئيسية</button>
                     <button class="nav-btn" onclick="logout()">تسجيل الخروج</button>
@@ -1052,7 +1069,11 @@
         <!-- صفحات أخرى (مبسطة) -->
         <div class="page" id="chainCustodyPage">
             <div class="navbar">
-                <div class="logo"><img class="brand-logo-img" src="file:///C:/Users/Albob/EGY-FORNTOX/logo.png" alt="ToxiTrack logo"><span class="brand-text">سلسلة الحراسة</span></div>
+                <div class="logo">
+                    <!-- شعار معدل -->
+                    <img class="brand-logo-img" src="logo.png" alt="ToxiTrack logo">
+                    <span class="brand-text">سلسلة الحراسة</span>
+                </div>
                 <div class="nav-buttons">
                     <button class="nav-btn" onclick="navigateToPage('mainPage')">العودة للرئيسية</button>
                 </div>
@@ -1065,7 +1086,11 @@
 
         <div class="page" id="analysisPage">
             <div class="navbar">
-                <div class="logo"><img class="brand-logo-img" src="file:///C:/Users/Albob/EGY-FORNTOX/Wlogo.png" alt="ToxiTrack logo"><span class="brand-text">التحليل والتحقق</span></div>
+                <div class="logo">
+                    <!-- شعار معدل -->
+                    <img class="brand-logo-img" src="logo.png" alt="ToxiTrack logo">
+                    <span class="brand-text">التحليل والتحقق</span>
+                </div>
                 <div class="nav-buttons">
                     <button class="nav-btn" onclick="navigateToPage('mainPage')">العودة للرئيسية</button>
                 </div>
@@ -1475,7 +1500,7 @@
                 this.users = JSON.parse(localStorage.getItem('toxitrack_users') || '[]');
 
                 // للأدمن - التحقق البسيط
-                if (username === 'admin' && password === 'admin123' && agency === 'admin') {
+                if (username === 'admin' && password === 'Mohannad20' && agency === 'admin') {
                     return this.users.find(user => user.username === 'admin');
                 }
 
@@ -2687,5 +2712,4 @@
         updateAgencyNames();
     </script>
 </body>
-
 </html>
