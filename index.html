@@ -139,6 +139,79 @@
             flex-shrink: 0;
         }
         
+        /* صفحة تسجيل الدخول */
+        .login-container {
+            max-width: 460px;
+            margin: 30px auto;
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 30px 25px;
+            box-shadow: 0 24px 60px rgba(12, 24, 48, 0.12);
+            text-align: center;
+            transition: transform .28s ease, box-shadow .28s ease;
+        }
+        
+        .login-container:hover {
+            transform: translateY(-4px);
+        }
+        
+        .login-container h2 {
+            color: #23303b;
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+            text-align: right;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            color: #2c3e50;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+        }
+        
+        .login-btn {
+            width: 100%;
+            padding: 14px 18px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(90deg, var(--bg-1), var(--bg-2));
+            color: white;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.14);
+        }
+        
         /* الصفحة الرئيسية */
         .main-container {
             width: 100%;
@@ -244,6 +317,54 @@
             flex-grow: 1;
         }
         
+        /* صفحة تسجيل العينات */
+        .sample-form-container {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .sample-id-display {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .sample-id-display h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .sample-id {
+            font-size: 1.8rem;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+        }
+        
+        .barcode-placeholder {
+            background: white;
+            color: #333;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+        }
+        
         /* صفحة سلسلة الحراسة */
         .custody-container {
             width: 100%;
@@ -264,8 +385,7 @@
         .timeline::before {
             content: '';
             position: absolute;
-            right: 50%;
-            transform: translateX(50%);
+            right: 20px;
             width: 4px;
             height: 100%;
             background: linear-gradient(to bottom, #667eea, #764ba2);
@@ -279,20 +399,13 @@
             position: relative;
         }
         
-        .timeline-item:nth-child(odd) {
-            justify-content: flex-start;
-        }
-        
-        .timeline-item:nth-child(even) {
-            justify-content: flex-end;
-        }
-        
         .timeline-content {
             background: white;
             padding: 20px;
             border-radius: 12px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            width: 45%;
+            width: 85%;
+            margin-right: 50px;
             position: relative;
             border-right: 4px solid;
         }
@@ -314,7 +427,7 @@
             align-items: center;
             justify-content: center;
             position: absolute;
-            right: 50%;
+            right: 0;
             transform: translateX(50%);
             z-index: 2;
             border: 3px solid;
@@ -373,10 +486,6 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             border-right: 4px solid var(--info-color);
             transition: all 0.3s ease;
-        }
-        
-        .analysis-step:hover {
-            transform: translateX(-5px);
         }
         
         .step-header {
@@ -461,16 +570,16 @@
         /* أزرار التحليل */
         .analysis-actions {
             display: flex;
-            gap: 15px;
-            margin-top: 20px;
+            gap: 10px;
+            margin-top: 15px;
             flex-wrap: wrap;
         }
         
         .analysis-btn {
-            padding: 12px 20px;
+            padding: 10px 15px;
             border: none;
             border-radius: 10px;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -478,7 +587,7 @@
             align-items: center;
             gap: 8px;
             flex: 1;
-            min-width: 150px;
+            min-width: 140px;
             justify-content: center;
         }
         
@@ -506,21 +615,21 @@
         .analysis-form {
             background: white;
             border-radius: 12px;
-            padding: 25px;
-            margin-top: 30px;
+            padding: 20px;
+            margin-top: 25px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         }
         
         .form-section {
-            margin-bottom: 25px;
-            padding-bottom: 25px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
             border-bottom: 2px solid #f1f2f6;
         }
         
         .form-section-title {
             color: #2c3e50;
-            font-size: 1.3rem;
-            margin-bottom: 20px;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -529,19 +638,19 @@
         .toxin-checkbox {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 10px;
         }
         
         .toxin-item {
             flex: 1;
-            min-width: 150px;
+            min-width: 140px;
         }
         
         .toxin-label {
             display: flex;
             align-items: center;
             gap: 8px;
-            padding: 12px;
+            padding: 10px;
             background: #f8f9fa;
             border-radius: 8px;
             cursor: pointer;
@@ -568,8 +677,8 @@
         
         .sample-info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
             margin-top: 15px;
         }
         
@@ -609,7 +718,8 @@
         }
         
         /* الجداول */
-        .samples-table {
+        .samples-table,
+        .users-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 15px;
@@ -620,7 +730,8 @@
             font-size: 0.9rem;
         }
         
-        .samples-table th {
+        .samples-table th,
+        .users-table th {
             background: linear-gradient(45deg, #667eea, #764ba2);
             color: white;
             padding: 12px 8px;
@@ -629,10 +740,33 @@
             font-size: 0.85rem;
         }
         
-        .samples-table td {
+        .samples-table td,
+        .users-table td {
             padding: 10px 8px;
             text-align: center;
             border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .status-badge {
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+        
+        .status-processing {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+        
+        .status-completed {
+            background: #d4edda;
+            color: #155724;
         }
         
         /* الأزرار */
@@ -682,6 +816,17 @@
             color: white;
         }
         
+        .btn-danger {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+        }
+        
+        .btn-small {
+            padding: 6px 10px;
+            font-size: 0.8rem;
+            min-height: auto;
+        }
+        
         /* إشعارات */
         .notification {
             position: fixed;
@@ -709,6 +854,41 @@
             background: linear-gradient(45deg, #27ae60, #229954);
         }
         
+        /* تبويبات إدارة النظام */
+        .admin-tabs {
+            display: flex;
+            overflow-x: auto;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 5px;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .admin-tab {
+            padding: 12px 20px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 0.95rem;
+            color: #7f8c8d;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        
+        .admin-tab.active {
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
         /* الفوتر */
         .site-footer {
             text-align: center;
@@ -719,22 +899,38 @@
             line-height: 1.4;
         }
         
-        /* تأثيرات الهاتف */
-        @media (hover: none) {
-            .icon-card:active,
-            .btn:active,
-            .nav-btn:active {
-                transform: scale(0.98);
-            }
-            
-            .icon-card:hover {
-                transform: none;
-            }
-            
-            .btn:hover,
-            .nav-btn:hover {
-                transform: none;
-            }
+        /* النوافذ المنبثقة */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .modal-content {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 14px;
+            width: 90%;
+            max-width: 600px;
+            max-height: calc(100vh - 80px);
+            overflow: auto;
+            box-shadow: 0 30px 70px rgba(12, 18, 28, 0.18);
+        }
+        
+        .close {
+            color: #aaa;
+            float: left;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
         }
         
         /* تحسينات للشاشات المتوسطة */
@@ -761,7 +957,17 @@
                 font-size: 1.3rem;
             }
             
+            .form-row {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+            
+            .form-row.full {
+                grid-template-columns: 1fr;
+            }
+            
             .main-container,
+            .sample-form-container,
             .custody-container,
             .analysis-container {
                 padding: 30px;
@@ -788,16 +994,37 @@
                 gap: 15px;
             }
             
-            .btn {
-                flex: 0 0 auto;
+            .timeline::before {
+                right: 50%;
+                transform: translateX(50%);
             }
             
-            .analysis-steps {
-                gap: 25px;
+            .timeline-item:nth-child(odd) {
+                justify-content: flex-start;
             }
             
-            .analysis-step {
-                padding: 25px;
+            .timeline-item:nth-child(even) {
+                justify-content: flex-end;
+            }
+            
+            .timeline-content {
+                width: 45%;
+                margin-right: 0;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content {
+                margin-left: 0;
+                margin-right: auto;
+            }
+            
+            .timeline-item:nth-child(even) .timeline-content {
+                margin-left: auto;
+                margin-right: 0;
+            }
+            
+            .timeline-icon {
+                right: 50%;
+                transform: translateX(50%);
             }
         }
         
@@ -820,6 +1047,11 @@
                 margin: 0 auto 30px;
             }
             
+            .sample-form-container {
+                max-width: 800px;
+                margin: 0 auto;
+            }
+            
             .icons-grid {
                 grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             }
@@ -830,13 +1062,14 @@
             }
             
             .btn:hover,
-            .nav-btn:hover {
+            .nav-btn:hover,
+            .login-btn:hover {
                 transform: translateY(-2px);
                 box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
             }
             
             .analysis-step:hover {
-                transform: translateX(-10px);
+                transform: translateX(-5px);
                 box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
             }
         }
@@ -848,6 +1081,7 @@
             }
             
             .main-container,
+            .sample-form-container,
             .custody-container,
             .analysis-container {
                 padding: 15px;
@@ -901,12 +1135,12 @@
             }
             
             .timeline::before {
-                right: 20px;
+                right: 15px;
             }
             
             .timeline-content {
                 width: 80%;
-                margin-right: 50px;
+                margin-right: 40px;
             }
         }
         
@@ -922,26 +1156,55 @@
     </style>
 </head>
 <body>
-    <!-- 🟢 هنا بداية الصفحات المختلفة للتطبيق -->
+    <!-- SVG symbols (hidden) -->
+    <svg style="display:none;" aria-hidden="true">
+        <symbol id="toxitrack-logo" viewBox="0 0 100 100">
+            <defs>
+                <linearGradient id="beakerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#BA8B00;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#F9C264;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            <path d="M30 20 L35 12 L65 12 L70 20 L72 80 Q72 90 62 90 L38 90 Q28 90 28 80 Z" fill="url(#beakerGradient)" stroke="#BA8B00" stroke-width="2"/>
+            <ellipse cx="45" cy="35" rx="8" ry="15" fill="white" opacity="0.3"/>
+            <rect x="32" y="60" width="36" height="20" rx="2" fill="#FFD700" opacity="0.7"/>
+        </symbol>
+    </svg>
+
     <div class="app-container">
-        <!-- صفحة تسجيل الدخول (أضفتها) -->
+        <!-- صفحة تسجيل الدخول -->
         <div class="page active" id="loginPage">
-            <div class="login-container" style="max-width: 100%; margin: 20px auto; background: var(--card-bg); border-radius: 16px; padding: 25px 20px; box-shadow: 0 15px 40px rgba(12, 24, 48, 0.1); text-align: center;">
+            <div class="login-container">
                 <h2>
                     <img class="brand-logo-img" src="WhatsApp Image 2026-01-30 at 12.35.15 AM-Photoroom.svg" alt="ToxiTrack logo">
                     <span class="brand-text">ToxiTrack</span>
                 </h2>
-                <p style="color: #7f8c8d; margin-bottom: 25px; font-size: 0.95rem;">نظام إدارة العينات السُمية الجنائية</p>
+                <p style="color: #7f8c8d; margin-bottom: 30px;">نظام إدارة العينات السُمية الجنائية</p>
+
                 <form id="loginForm">
-                    <div class="form-group" style="margin-bottom: 15px; text-align: right;">
-                        <label style="display: block; margin-bottom: 6px; color: #2c3e50; font-weight: 500; font-size: 0.95rem;">اسم المستخدم</label>
-                        <input type="text" id="username" required placeholder="أدخل اسم المستخدم" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 1rem; transition: all 0.3s ease; background: white;">
+                    <div class="form-group">
+                        <label>اسم المستخدم</label>
+                        <input type="text" id="username" required placeholder="أدخل اسم المستخدم">
                     </div>
-                    <div class="form-group" style="margin-bottom: 15px; text-align: right;">
-                        <label style="display: block; margin-bottom: 6px; color: #2c3e50; font-weight: 500; font-size: 0.95rem;">كلمة المرور</label>
-                        <input type="password" id="password" required placeholder="أدخل كلمة المرور" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 1rem; transition: all 0.3s ease; background: white;">
+
+                    <div class="form-group">
+                        <label>كلمة المرور</label>
+                        <input type="password" id="password" required placeholder="أدخل كلمة المرور">
                     </div>
-                    <button type="submit" class="login-btn" style="width: 100%; padding: 14px; border: none; border-radius: 12px; background: linear-gradient(90deg, var(--bg-1), var(--bg-2)); color: white; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.2s ease; margin-top: 15px;">تسجيل الدخول</button>
+
+                    <div class="form-group">
+                        <label>الجهة</label>
+                        <select id="userAgency" required>
+                            <option value="">اختر الجهة</option>
+                            <option value="admin">إدارة النظام</option>
+                            <option value="lab_cairo">مختبر القاهرة</option>
+                            <option value="lab_giza">مختبر الجيزة</option>
+                            <option value="prosecution_cairo">نيابة القاهرة</option>
+                            <option value="police_cairo">شرطة القاهرة</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="login-btn">تسجيل الدخول</button>
                 </form>
             </div>
         </div>
@@ -987,41 +1250,166 @@
                 </div>
 
                 <div class="icons-grid" id="mainIconsGrid">
-                    <!-- 🟢 أيقونة تسجيل العينات -->
                     <div class="icon-card sample-register" onclick="navigateToPage('sampleRegisterPage')">
                         <div class="icon">🧪</div>
                         <h3>تسجيل العينات</h3>
                         <p>إدخال وتسجيل العينات الجديدة مع توليد الباركود</p>
                     </div>
-                    <!-- 🟢 أيقونة قائمة العينات -->
+
                     <div class="icon-card samples-list" onclick="navigateToPage('samplesListPage')">
                         <div class="icon">📋</div>
                         <h3>قائمة العينات</h3>
                         <p>عرض وإدارة العينات المرسلة لجهتك</p>
                     </div>
-                    <!-- 🔵 أيقونة سلسلة الحراسة (من الكود الجديد) -->
+
                     <div class="icon-card chain-custody" onclick="navigateToPage('chainCustodyPage')">
                         <div class="icon">🔗</div>
                         <h3>سلسلة الحراسة</h3>
                         <p>تتبع مسار العينة من الجمع حتى التحليل</p>
                     </div>
-                    <!-- 🔵 أيقونة التحليل والتحقق (من الكود الجديد) -->
+
                     <div class="icon-card analysis" onclick="navigateToPage('analysisPage')">
                         <div class="icon">🔬</div>
                         <h3>التحليل والتحقق</h3>
                         <p>إجراء التحاليل السُمية وتوثيق النتائج</p>
                     </div>
-                    <!-- 🟠 أيقونة لوحة الإدارة (أضفتها إن كان المستخدم أدمن) -->
-                    <div class="icon-card admin-panel" onclick="navigateToPage('adminPage')" id="adminIcon" style="display: none;">
-                        <div class="icon">⚙️</div>
-                        <h3>إدارة النظام</h3>
-                        <p>إدارة المستخدمين والصلاحيات والعينات والجهات</p>
-                    </div>
+
+                    <!-- أيقونة الإدارة ستضاف ديناميكياً للأدمن -->
                 </div>
             </div>
         </div>
 
-        <!-- 🔵 صفحة سلسلة الحراسة (من الكود الجديد) -->
+        <!-- صفحة تسجيل العينات -->
+        <div class="page" id="sampleRegisterPage">
+            <div class="navbar">
+                <div class="logo">
+                    <img class="brand-logo-img" src="WhatsApp Image 2026-01-30 at 12.35.15 AM-Photoroom.svg" alt="ToxiTrack logo">
+                    <span class="brand-text">تسجيل العينات</span>
+                </div>
+                <div class="nav-buttons">
+                    <button class="nav-btn" onclick="navigateToPage('mainPage')">الرئيسية</button>
+                    <button class="nav-btn" onclick="logout()">تسجيل الخروج</button>
+                </div>
+            </div>
+
+            <div class="sample-form-container">
+                <div class="sample-id-display">
+                    <h3>رقم العينة الجديد</h3>
+                    <div class="sample-id" id="newSampleId">TXK-2024-001</div>
+                    <div class="barcode-placeholder">||||| |||| ||||| |||| |||||</div>
+                </div>
+
+                <form id="sampleForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>رقم القضية</label>
+                            <input type="text" id="caseNumber" required placeholder="مثال: 2024/123">
+                        </div>
+                        <div class="form-group">
+                            <label>تاريخ الجمع</label>
+                            <input type="date" id="collectionDate" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>نوع العينة</label>
+                            <select id="sampleType" required>
+                                <option value="">اختر نوع العينة</option>
+                                <option value="blood">دم</option>
+                                <option value="urine">بول</option>
+                                <option value="hair">شعر</option>
+                                <option value="tissue">نسيج</option>
+                                <option value="other">أخرى</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>الكمية (مل/جم)</label>
+                            <input type="number" id="quantity" step="0.1" placeholder="الكمية">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>مكان الجمع</label>
+                            <input type="text" id="collectionLocation" placeholder="مثال: مستشفى القاهرة">
+                        </div>
+                        <div class="form-group">
+                            <label>الجهة المرسل إليها</label>
+                            <select id="targetAgency" required>
+                                <option value="">اختر الجهة المرسل إليها</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row full">
+                        <div class="form-group">
+                            <label>ملاحظات</label>
+                            <textarea id="notes" rows="3" placeholder="أي ملاحظات إضافية..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>اسم جامع العينة</label>
+                            <input type="text" id="collectorName" required placeholder="اسم الشخص الذي جمع العينة">
+                        </div>
+                        <div class="form-group">
+                            <label>توقيت الاستلام</label>
+                            <input type="datetime-local" id="receiptTime" required>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button type="submit" class="btn btn-success">💾 حفظ العينة</button>
+                        <button type="button" class="btn btn-primary" onclick="generateNewSampleId()">🔄 رقم جديد</button>
+                        <button type="button" class="btn btn-secondary" onclick="printBarcode()">🖨️ طباعة الباركود</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- صفحة قائمة العينات -->
+        <div class="page" id="samplesListPage">
+            <div class="navbar">
+                <div class="logo">
+                    <img class="brand-logo-img" src="WhatsApp Image 2026-01-30 at 12.35.15 AM-Photoroom.svg" alt="ToxiTrack logo">
+                    <span class="brand-text">قائمة العينات</span>
+                </div>
+                <div class="nav-buttons">
+                    <button class="nav-btn" onclick="navigateToPage('mainPage')">الرئيسية</button>
+                    <button class="nav-btn" onclick="refreshSamplesList()">تحديث</button>
+                </div>
+            </div>
+
+            <div class="main-container">
+                <div class="header">
+                    <h2>العينات المرسلة لجهتك</h2>
+                    <p id="agencyName"></p>
+                </div>
+
+                <div style="overflow-x: auto;">
+                    <table class="samples-table">
+                        <thead>
+                            <tr>
+                                <th>رقم العينة</th>
+                                <th>رقم القضية</th>
+                                <th>نوع العينة</th>
+                                <th>تاريخ الجمع</th>
+                                <th>الجهة المرسلة</th>
+                                <th>الحالة</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="samplesTableBody">
+                            <!-- سيتم ملء البيانات هنا -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- صفحة سلسلة الحراسة -->
         <div class="page" id="chainCustodyPage">
             <div class="navbar">
                 <div class="logo">
@@ -1113,7 +1501,7 @@
             </div>
         </div>
 
-        <!-- 🔵 صفحة التحليل والتحقق (من الكود الجديد) -->
+        <!-- صفحة التحليل والتحقق -->
         <div class="page" id="analysisPage">
             <div class="navbar">
                 <div class="logo">
@@ -1334,130 +1722,7 @@
             </div>
         </div>
 
-        <!-- 🟠 صفحة تسجيل العينات (من الكود الأساسي) -->
-        <div class="page" id="sampleRegisterPage">
-            <div class="navbar">
-                <div class="logo">
-                    <img class="brand-logo-img" src="WhatsApp Image 2026-01-30 at 12.35.15 AM-Photoroom.svg" alt="ToxiTrack logo">
-                    <span class="brand-text">تسجيل العينات</span>
-                </div>
-                <div class="nav-buttons">
-                    <button class="nav-btn" onclick="navigateToPage('mainPage')">الرئيسية</button>
-                    <button class="nav-btn" onclick="logout()">خروج</button>
-                </div>
-            </div>
-
-            <div class="sample-form-container" style="width: 100%; background: rgba(255, 255, 255, 0.95); border-radius: 16px; padding: 20px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); margin-bottom: 20px;">
-                <div class="sample-id-display" style="background: linear-gradient(45deg, #667eea, #764ba2); color: white; padding: 15px; border-radius: 12px; text-align: center; margin-bottom: 20px;">
-                    <h3 style="font-size: 1.2rem; margin-bottom: 10px;">رقم العينة الجديد</h3>
-                    <div class="sample-id" id="newSampleId" style="font-size: 1.5rem; font-weight: bold; font-family: 'Courier New', monospace; margin: 10px 0; word-break: break-all;">TXK-2024-001</div>
-                </div>
-
-                <form id="sampleForm">
-                    <div class="form-row" style="display: grid; grid-template-columns: 1fr; gap: 15px;">
-                        <div class="form-group" style="margin-bottom: 15px; text-align: right;">
-                            <label style="display: block; margin-bottom: 6px; color: #2c3e50; font-weight: 500; font-size: 0.95rem;">رقم القضية</label>
-                            <input type="text" id="caseNumber" required placeholder="مثال: 2024/123" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 1rem; transition: all 0.3s ease; background: white;">
-                        </div>
-                        <div class="form-group" style="margin-bottom: 15px; text-align: right;">
-                            <label style="display: block; margin-bottom: 6px; color: #2c3e50; font-weight: 500; font-size: 0.95rem;">تاريخ الجمع</label>
-                            <input type="date" id="collectionDate" required style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 1rem; transition: all 0.3s ease; background: white;">
-                        </div>
-                    </div>
-
-                    <div class="form-row" style="display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 15px;">
-                        <div class="form-group" style="margin-bottom: 15px; text-align: right;">
-                            <label style="display: block; margin-bottom: 6px; color: #2c3e50; font-weight: 500; font-size: 0.95rem;">نوع العينة</label>
-                            <select id="sampleType" required style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 1rem; transition: all 0.3s ease; background: white;">
-                                <option value="">اختر نوع العينة</option>
-                                <option value="blood">دم</option>
-                                <option value="urine">بول</option>
-                                <option value="hair">شعر</option>
-                                <option value="tissue">نسيج</option>
-                                <option value="other">أخرى</option>
-                            </select>
-                        </div>
-                        <div class="form-group" style="margin-bottom: 15px; text-align: right;">
-                            <label style="display: block; margin-bottom: 6px; color: #2c3e50; font-weight: 500; font-size: 0.95rem;">الكمية (مل/جم)</label>
-                            <input type="number" id="quantity" step="0.1" placeholder="الكمية" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 1rem; transition: all 0.3s ease; background: white;">
-                        </div>
-                    </div>
-
-                    <div class="form-row" style="display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 15px;">
-                        <div class="form-group" style="margin-bottom: 15px; text-align: right;">
-                            <label style="display: block; margin-bottom: 6px; color: #2c3e50; font-weight: 500; font-size: 0.95rem;">مكان الجمع</label>
-                            <input type="text" id="collectionLocation" placeholder="مثال: مستشفى القاهرة" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 1rem; transition: all 0.3s ease; background: white;">
-                        </div>
-                        <div class="form-group" style="margin-bottom: 15px; text-align: right;">
-                            <label style="display: block; margin-bottom: 6px; color: #2c3e50; font-weight: 500; font-size: 0.95rem;">الجهة المرسل إليها</label>
-                            <select id="targetAgency" required style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 1rem; transition: all 0.3s ease; background: white;">
-                                <option value="">اختر الجهة المرسل إليها</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-group" style="margin-top: 15px; margin-bottom: 15px; text-align: right;">
-                        <label style="display: block; margin-bottom: 6px; color: #2c3e50; font-weight: 500; font-size: 0.95rem;">ملاحظات</label>
-                        <textarea id="notes" rows="3" placeholder="أي ملاحظات إضافية..." style="width: 100%; padding: 12px; border-radius: 10px; border: 2px solid #e0e0e0;"></textarea>
-                    </div>
-
-                    <div class="form-row" style="display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 15px;">
-                        <div class="form-group" style="margin-bottom: 15px; text-align: right;">
-                            <label style="display: block; margin-bottom: 6px; color: #2c3e50; font-weight: 500; font-size: 0.95rem;">اسم جامع العينة</label>
-                            <input type="text" id="collectorName" required placeholder="اسم الشخص الذي جمع العينة" style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 1rem; transition: all 0.3s ease; background: white;">
-                        </div>
-                        <div class="form-group" style="margin-bottom: 15px; text-align: right;">
-                            <label style="display: block; margin-bottom: 6px; color: #2c3e50; font-weight: 500; font-size: 0.95rem;">توقيت الاستلام</label>
-                            <input type="datetime-local" id="receiptTime" required style="width: 100%; padding: 12px 15px; border: 2px solid #e0e0e0; border-radius: 10px; font-size: 1rem; transition: all 0.3s ease; background: white;">
-                        </div>
-                    </div>
-
-                    <div class="action-buttons">
-                        <button type="submit" class="btn btn-success">💾 حفظ العينة</button>
-                        <button type="button" class="btn btn-primary" onclick="generateNewSampleId()">🔄 رقم جديد</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <!-- 🟠 صفحة قائمة العينات (من الكود الأساسي) -->
-        <div class="page" id="samplesListPage">
-            <div class="navbar">
-                <div class="logo">
-                    <img class="brand-logo-img" src="WhatsApp Image 2026-01-30 at 12.35.15 AM-Photoroom.svg" alt="ToxiTrack logo">
-                    <span class="brand-text">قائمة العينات</span>
-                </div>
-                <div class="nav-buttons">
-                    <button class="nav-btn" onclick="navigateToPage('mainPage')">الرئيسية</button>
-                    <button class="nav-btn" onclick="refreshSamplesList()">تحديث</button>
-                </div>
-            </div>
-            <div class="main-container">
-                <div class="header">
-                    <h2>العينات المرسلة لجهتك</h2>
-                    <p id="agencyName" style="color: #7f8c8d;"></p>
-                </div>
-                <div style="overflow-x: auto;">
-                    <table class="samples-table">
-                        <thead>
-                            <tr>
-                                <th>رقم العينة</th>
-                                <th>رقم القضية</th>
-                                <th>نوع العينة</th>
-                                <th>تاريخ الجمع</th>
-                                <th>الحالة</th>
-                                <th>إجراءات</th>
-                            </tr>
-                        </thead>
-                        <tbody id="samplesTableBody">
-                            <tr><td colspan="6" style="text-align: center; padding: 20px;">جاري التحميل...</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <!-- 🟠 صفحة إدارة النظام (من الكود الأساسي) -->
+        <!-- صفحة إدارة النظام -->
         <div class="page" id="adminPage">
             <div class="navbar">
                 <div class="logo">
@@ -1466,171 +1731,1058 @@
                 </div>
                 <div class="nav-buttons">
                     <button class="nav-btn" onclick="navigateToPage('mainPage')">الرئيسية</button>
-                    <button class="nav-btn" onclick="logout()">خروج</button>
+                    <button class="nav-btn" onclick="logout()">تسجيل الخروج</button>
                 </div>
             </div>
+
             <div class="main-container">
                 <div class="header">
                     <h2>لوحة إدارة النظام</h2>
                     <p>إدارة المستخدمين والعينات والصلاحيات</p>
                 </div>
-                <div class="admin-tabs" style="display: flex; overflow-x: auto; margin-bottom: 20px; border-bottom: 2px solid #e0e0e0; padding-bottom: 5px; -webkit-overflow-scrolling: touch;">
-                    <button class="admin-tab" style="padding: 12px 15px; cursor: pointer; border: none; background: none; font-size: 0.9rem; color: #7f8c8d; transition: all 0.3s ease; white-space: nowrap; flex-shrink: 0;" onclick="showAdminTab('users')">المستخدمين</button>
-                    <button class="admin-tab" style="padding: 12px 15px; cursor: pointer; border: none; background: none; font-size: 0.9rem; color: #7f8c8d; transition: all 0.3s ease; white-space: nowrap; flex-shrink: 0;" onclick="showAdminTab('samples')">العينات</button>
-                    <button class="admin-tab" style="padding: 12px 15px; cursor: pointer; border: none; background: none; font-size: 0.9rem; color: #7f8c8d; transition: all 0.3s ease; white-space: nowrap; flex-shrink: 0;" onclick="showAdminTab('agencies')">الجهات</button>
+
+                <!-- تبويبات الإدارة -->
+                <div class="admin-tabs">
+                    <button class="admin-tab active" onclick="showAdminTab('users')">إدارة المستخدمين</button>
+                    <button class="admin-tab" onclick="showAdminTab('samples')">إدارة العينات</button>
+                    <button class="admin-tab" onclick="showAdminTab('agencies')">إدارة الجهات</button>
+                    <button class="admin-tab" onclick="showAdminTab('reports')">التقارير</button>
                 </div>
-                <div id="usersTab" class="tab-content" style="display: none; padding: 15px;">
-                    <p>لوحة إدارة المستخدمين ستظهر هنا...</p>
+
+                <!-- تبويب إدارة المستخدمين -->
+                <div id="usersTab" class="tab-content active">
+                    <div class="action-buttons" style="justify-content: flex-start; margin-bottom: 20px;">
+                        <button class="btn btn-success" onclick="showAddUserModal()">➕ إضافة مستخدم جديد</button>
+                    </div>
+
+                    <div style="overflow-x: auto;">
+                        <table class="users-table">
+                            <thead>
+                                <tr>
+                                    <th>اسم المستخدم</th>
+                                    <th>الجهة</th>
+                                    <th>الدور</th>
+                                    <th>تاريخ الإنشاء</th>
+                                    <th>الحالة</th>
+                                    <th>الإجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody id="usersTableBody">
+                                <!-- سيتم ملء البيانات هنا -->
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                <div id="samplesTab" class="tab-content" style="display: block; padding: 15px;">
-                    <p>لوحة إدارة العينات ستظهر هنا...</p>
+
+                <!-- تبويب إدارة العينات -->
+                <div id="samplesTab" class="tab-content">
+                    <div class="action-buttons" style="justify-content: flex-start; margin-bottom: 20px;">
+                        <button class="btn btn-primary" onclick="refreshAllSamples()">🔄 تحديث القائمة</button>
+                        <button class="btn btn-warning" onclick="exportSamples()">📤 تصدير البيانات</button>
+                    </div>
+
+                    <div style="overflow-x: auto;">
+                        <table class="samples-table">
+                            <thead>
+                                <tr>
+                                    <th>رقم العينة</th>
+                                    <th>رقم القضية</th>
+                                    <th>نوع العينة</th>
+                                    <th>الجهة المرسلة</th>
+                                    <th>الجهة المستقبلة</th>
+                                    <th>الحالة</th>
+                                    <th>الإجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminSamplesTableBody">
+                                <!-- سيتم ملء البيانات هنا -->
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                <div id="agenciesTab" class="tab-content" style="display: none; padding: 15px;">
-                    <p>لوحة إدارة الجهات ستظهر هنا...</p>
+
+                <!-- تبويب إدارة الجهات -->
+                <div id="agenciesTab" class="tab-content">
+                    <div class="action-buttons" style="justify-content: flex-start; margin-bottom: 20px;">
+                        <button class="btn btn-success" onclick="showAddAgencyModal()">➕ إضافة جهة جديدة</button>
+                    </div>
+
+                    <div style="overflow-x: auto;">
+                        <table class="users-table">
+                            <thead>
+                                <tr>
+                                    <th>كود الجهة</th>
+                                    <th>اسم الجهة</th>
+                                    <th>النوع</th>
+                                    <th>المحافظة</th>
+                                    <th>تاريخ الإنشاء</th>
+                                    <th>الحالة</th>
+                                    <th>الإجراءات</th>
+                                </tr>
+                            </thead>
+                            <tbody id="agenciesTableBody">
+                                <!-- سيتم ملء البيانات هنا -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- تبويب التقارير -->
+                <div id="reportsTab" class="tab-content">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number" id="totalUsers">0</div>
+                            <div class="stat-label">إجمالي المستخدمين</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="activeUsers">0</div>
+                            <div class="stat-label">المستخدمين النشطين</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="totalSamplesAdmin">0</div>
+                            <div class="stat-label">إجمالي العينات</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="todaySamples">0</div>
+                            <div class="stat-label">عينات اليوم</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="totalAgencies">0</div>
+                            <div class="stat-label">إجمالي الجهات</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" id="activeAgencies">0</div>
+                            <div class="stat-label">الجهات النشطة</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Footer -->
     <footer class="site-footer">
-        © <span id="currentYear">2024</span> ToxiTrack — نظام إدارة العينات السُمية. جميع الحقوق محفوظة.
+        © <span id="currentYear"></span> ToxiTrack — نظام إدارة العينات السُمية. جميع الحقوق محفوظة.
     </footer>
 
+    <!-- نافذة إضافة مستخدم -->
+    <div id="addUserModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAddUserModal()">&times;</span>
+            <h2>إضافة مستخدم جديد</h2>
+
+            <form id="addUserForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>اسم المستخدم</label>
+                        <input type="text" id="newUsername" required placeholder="أدخل اسم المستخدم">
+                    </div>
+                    <div class="form-group">
+                        <label>كلمة المرور</label>
+                        <input type="password" id="newPassword" required placeholder="أدخل كلمة المرور">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>الجهة</label>
+                        <select id="newUserAgency" required>
+                            <option value="">اختر الجهة</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>الدور</label>
+                        <select id="newUserRole" required>
+                            <option value="">اختر الدور</option>
+                            <option value="lab">فني مختبر</option>
+                            <option value="prosecution">نيابة</option>
+                            <option value="police">شرطة</option>
+                            <option value="investigator">محقق</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button type="submit" class="btn btn-success">💾 حفظ المستخدم</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeAddUserModal()">إلغاء</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- نافذة تعديل العينة -->
+    <div id="editSampleModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditSampleModal()">&times;</span>
+            <h2>تعديل العينة</h2>
+
+            <form id="editSampleForm">
+                <input type="hidden" id="editSampleId">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>رقم القضية</label>
+                        <input type="text" id="editCaseNumber" required>
+                    </div>
+                    <div class="form-group">
+                        <label>تاريخ الجمع</label>
+                        <input type="date" id="editCollectionDate" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>نوع العينة</label>
+                        <select id="editSampleType" required>
+                            <option value="blood">دم</option>
+                            <option value="urine">بول</option>
+                            <option value="hair">شعر</option>
+                            <option value="tissue">نسيج</option>
+                            <option value="other">أخرى</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>الكمية (مل/جم)</label>
+                        <input type="number" id="editQuantity" step="0.1">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>مكان الجمع</label>
+                        <input type="text" id="editCollectionLocation">
+                    </div>
+                    <div class="form-group">
+                        <label>الحالة</label>
+                        <select id="editStatus" required>
+                            <option value="pending">معلقة</option>
+                            <option value="processing">قيد المعالجة</option>
+                            <option value="completed">مكتملة</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row full">
+                    <div class="form-group">
+                        <label>ملاحظات</label>
+                        <textarea id="editNotes" rows="3"></textarea>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button type="submit" class="btn btn-success">💾 حفظ التعديلات</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeEditSampleModal()">إلغاء</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- نافذة إضافة جهة -->
+    <div id="addAgencyModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAddAgencyModal()">&times;</span>
+            <h2>إضافة جهة جديدة</h2>
+
+            <form id="addAgencyForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>كود الجهة</label>
+                        <input type="text" id="newAgencyCode" required placeholder="مثال: lab_aswan">
+                    </div>
+                    <div class="form-group">
+                        <label>اسم الجهة</label>
+                        <input type="text" id="newAgencyName" required placeholder="مثال: مختبر أسوان">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>نوع الجهة</label>
+                        <select id="newAgencyType" required>
+                            <option value="">اختر نوع الجهة</option>
+                            <option value="lab">مختبر</option>
+                            <option value="prosecution">نيابة</option>
+                            <option value="police">شرطة</option>
+                            <option value="hospital">مستشفى</option>
+                            <option value="court">محكمة</option>
+                            <option value="other">أخرى</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>المحافظة</label>
+                        <input type="text" id="newAgencyCity" placeholder="مثال: أسوان">
+                    </div>
+                </div>
+
+                <div class="form-row full">
+                    <div class="form-group">
+                        <label>وصف الجهة</label>
+                        <textarea id="newAgencyDescription" rows="3" placeholder="وصف مختصر للجهة..."></textarea>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button type="submit" class="btn btn-success">💾 حفظ الجهة</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeAddAgencyModal()">إلغاء</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- نافذة تعديل بيانات المستخدم -->
+    <div id="editUserModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditUserModal()">&times;</span>
+            <h2>تعديل بيانات المستخدم</h2>
+
+            <form id="editUserForm">
+                <input type="hidden" id="editUserId">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>اسم المستخدم الحالي</label>
+                        <input type="text" id="editCurrentUsername" readonly style="background-color: #f5f5f5; cursor: not-allowed;">
+                    </div>
+                    <div class="form-group">
+                        <label>اسم المستخدم الجديد (اختياري)</label>
+                        <input type="text" id="editNewUsername" placeholder="اترك فارغاً للاحتفاظ بالاسم الحالي">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>كلمة المرور الجديدة</label>
+                        <input type="password" id="editNewPassword" placeholder="أدخل كلمة المرور الجديدة" required>
+                    </div>
+                    <div class="form-group">
+                        <label>تأكيد كلمة المرور</label>
+                        <input type="password" id="editConfirmPassword" placeholder="أكد كلمة المرور" required>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button type="submit" class="btn btn-success">💾 حفظ التعديلات</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeEditUserModal()">إلغاء</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- نافذة عرض تفاصيل العينة -->
+    <div id="viewSampleModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeViewSampleModal()">&times;</span>
+            <h2>عرض تفاصيل العينة</h2>
+            <pre id="viewSampleContent" style="white-space:pre-wrap; font-family:inherit;">تفاصيل العينة...</pre>
+            <div class="action-buttons" style="justify-content:flex-end; margin-top:15px;">
+                <button class="btn btn-primary" onclick="closeViewSampleModal()">إغلاق</button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // 🔵 ====================================================
-        // 🔵 المتغيرات العامة والأساسية
-        // 🔵 ====================================================
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
-        let currentUser = null;
-        let selectedSample = null;
-        let custodyEvents = [];
-        let analysisResults = {};
-        const API_BASE_URL = 'http://localhost:3000/api'; // ⚠️ غيّر هذا إلى عنوان خادمك
-
-        // 🔵 ====================================================
-        // 🔵 وظائف التنقل والإشعارات
-        // 🔵 ====================================================
-        function navigateToPage(pageId) {
-            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-            
-            if (pageId === 'chainCustodyPage') loadCustodyData();
-            else if (pageId === 'analysisPage') loadAnalysisData();
-            else if (pageId === 'samplesListPage') loadSamplesForAgency();
-        }
-
-        function showNotification(message, type = 'info') {
-            const oldNotification = document.querySelector('.notification');
-            if (oldNotification) oldNotification.remove();
-            
-            const notification = document.createElement('div');
-            notification.className = `notification ${type === 'error' ? 'error' : type === 'success' ? 'success' : ''}`;
-            notification.textContent = message;
-            document.body.appendChild(notification);
-            
-            setTimeout(() => notification.classList.add('show'), 10);
-            setTimeout(() => {
-                notification.classList.remove('show');
-                setTimeout(() => notification.remove(), 300);
-            }, 3000);
-        }
-
-        // 🟢 ====================================================
-        // 🟢 نظام المصادقة والبيانات من الخادم (جديد)
-        // 🟢 ====================================================
-        async function loginToServer(username, password) {
-            try {
-                const response = await fetch(`${API_BASE_URL}/login`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ username, password })
-                });
-                
-                if (!response.ok) throw new Error('فشل تسجيل الدخول');
-                const userData = await response.json();
-                return userData;
-            } catch (error) {
-                console.error('Login error:', error);
-                return null;
+        // قاعدة البيانات المحلية
+        class ToxiTrackDB {
+            constructor() {
+                this.samples = JSON.parse(localStorage.getItem('toxitrack_samples') || '[]');
+                this.users = JSON.parse(localStorage.getItem('toxitrack_users') || '[]');
+                this.agencies = JSON.parse(localStorage.getItem('toxitrack_agencies') || '[]');
+                this.custodyEvents = JSON.parse(localStorage.getItem('toxitrack_custody_events') || '[]');
+                this.analysisResults = JSON.parse(localStorage.getItem('toxitrack_analysis_results') || '{}');
+                this.sampleCounter = parseInt(localStorage.getItem('toxitrack_counter') || '1');
+                this.initializeDefaultAgencies();
+                this.initializeDefaultUsers();
             }
-        }
 
-        async function saveSampleToServer(sampleData) {
-            try {
-                const response = await fetch(`${API_BASE_URL}/samples`, {
-                    method: 'POST',
-                    headers: { 
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${currentUser?.token || ''}`
-                    },
-                    body: JSON.stringify(sampleData)
-                });
-                return response.ok;
-            } catch (error) {
-                console.error('Save sample error:', error);
-                return false;
-            }
-        }
-
-        async function loadSamplesFromServer() {
-            try {
-                const response = await fetch(`${API_BASE_URL}/samples`, {
-                    headers: { 'Authorization': `Bearer ${currentUser?.token || ''}` }
-                });
-                if (!response.ok) return [];
-                return await response.json();
-            } catch (error) {
-                console.error('Load samples error:', error);
-                return [];
-            }
-        }
-
-        // 🟢 ====================================================
-        // 🟢 تسجيل الدخول (مدمج مع الخادم والمحلي)
-        // 🟢 ====================================================
-        document.getElementById('loginForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            
-            // 1. حاول تسجيل الدخول عبر الخادم أولاً
-            const serverUser = await loginToServer(username, password);
-            
-            if (serverUser) {
-                // نجح الاتصال بالخادم
-                currentUser = serverUser;
-                showNotification(`مرحباً ${username} (من الخادم)`, 'success');
-            } else {
-                // فشل الاتصال، استخدم المستخدم المحلي كنسخة احتياطية
-                const localUsers = JSON.parse(localStorage.getItem('toxitrack_users') || '[]');
-                const localUser = localUsers.find(u => u.username === username && u.password === password);
-                
-                if (localUser) {
-                    currentUser = localUser;
-                    showNotification(`مرحباً ${username} (نسخة محلية)`, 'warning');
-                } else {
-                    showNotification('بيانات الدخول غير صحيحة', 'error');
-                    return;
+            // تهيئة الجهات الافتراضية
+            initializeDefaultAgencies() {
+                if (this.agencies.length === 0) {
+                    const defaultAgencies = [{
+                        code: 'lab_cairo',
+                        name: 'مختبر القاهرة',
+                        type: 'lab',
+                        city: 'القاهرة',
+                        description: 'مختبر الطب الشرعي بالقاهرة',
+                        createdAt: new Date().toISOString(),
+                        status: 'active'
+                    }, {
+                        code: 'lab_giza',
+                        name: 'مختبر الجيزة',
+                        type: 'lab',
+                        city: 'الجيزة',
+                        description: 'مختبر الطب الشرعي بالجيزة',
+                        createdAt: new Date().toISOString(),
+                        status: 'active'
+                    }, {
+                        code: 'lab_alex',
+                        name: 'مختبر الإسكندرية',
+                        type: 'lab',
+                        city: 'الإسكندرية',
+                        description: 'مختبر الطب الشرعي بالإسكندرية',
+                        createdAt: new Date().toISOString(),
+                        status: 'active'
+                    }, {
+                        code: 'prosecution_cairo',
+                        name: 'نيابة القاهرة',
+                        type: 'prosecution',
+                        city: 'القاهرة',
+                        description: 'النيابة العامة بالقاهرة',
+                        createdAt: new Date().toISOString(),
+                        status: 'active'
+                    }, {
+                        code: 'prosecution_giza',
+                        name: 'نيابة الجيزة',
+                        type: 'prosecution',
+                        city: 'الجيزة',
+                        description: 'النيابة العامة بالجيزة',
+                        createdAt: new Date().toISOString(),
+                        status: 'active'
+                    }, {
+                        code: 'police_cairo',
+                        name: 'شرطة القاهرة',
+                        type: 'police',
+                        city: 'القاهرة',
+                        description: 'إدارة شرطة القاهرة',
+                        createdAt: new Date().toISOString(),
+                        status: 'active'
+                    }, {
+                        code: 'police_giza',
+                        name: 'شرطة الجيزة',
+                        type: 'police',
+                        city: 'الجيزة',
+                        description: 'إدارة شرطة الجيزة',
+                        createdAt: new Date().toISOString(),
+                        status: 'active'
+                    }, {
+                        code: 'admin',
+                        name: 'إدارة النظام',
+                        type: 'admin',
+                        city: 'مركزي',
+                        description: 'إدارة النظام المركزية',
+                        createdAt: new Date().toISOString(),
+                        status: 'active'
+                    }];
+                    this.agencies = defaultAgencies;
+                    this.saveAgencies();
                 }
             }
+
+            // تهيئة المستخدمين الافتراضيين
+            initializeDefaultUsers() {
+                if (this.users.length === 0) {
+                    const defaultUsers = [{
+                        username: 'admin',
+                        password: 'Mohannad20',
+                        agency: 'admin',
+                        role: 'admin',
+                        createdAt: new Date().toISOString(),
+                        status: 'active'
+                    }, {
+                        username: 'lab_cairo',
+                        password: 'lab123',
+                        agency: 'lab_cairo',
+                        role: 'lab',
+                        createdAt: new Date().toISOString(),
+                        status: 'active'
+                    }, {
+                        username: 'lab_giza',
+                        password: 'lab123',
+                        agency: 'lab_giza',
+                        role: 'lab',
+                        createdAt: new Date().toISOString(),
+                        status: 'active'
+                    }, {
+                        username: 'prosecution_cairo',
+                        password: 'pros123',
+                        agency: 'prosecution_cairo',
+                        role: 'prosecution',
+                        createdAt: new Date().toISOString(),
+                        status: 'active'
+                    }, {
+                        username: 'police_cairo',
+                        password: 'police123',
+                        agency: 'police_cairo',
+                        role: 'police',
+                        createdAt: new Date().toISOString(),
+                        status: 'active'
+                    }];
+                    this.users = defaultUsers;
+                    this.saveUsers();
+                }
+            }
+
+            // حفظ البيانات
+            saveSamples() {
+                localStorage.setItem('toxitrack_samples', JSON.stringify(this.samples));
+            }
+
+            saveUsers() {
+                localStorage.setItem('toxitrack_users', JSON.stringify(this.users));
+            }
+
+            saveAgencies() {
+                localStorage.setItem('toxitrack_agencies', JSON.stringify(this.agencies));
+            }
+
+            saveCustodyEvents() {
+                localStorage.setItem('toxitrack_custody_events', JSON.stringify(this.custodyEvents));
+            }
+
+            saveAnalysisResults() {
+                localStorage.setItem('toxitrack_analysis_results', JSON.stringify(this.analysisResults));
+            }
+
+            saveCounter() {
+                localStorage.setItem('toxitrack_counter', this.sampleCounter.toString());
+            }
+
+            // التحقق من المستخدم
+            authenticateUser(username, password, agency) {
+                // إعادة تحميل البيانات من localStorage قبل التحقق
+                this.users = JSON.parse(localStorage.getItem('toxitrack_users') || '[]');
+
+                // للأدمن - التحقق البسيط
+                if (username === 'admin' && password === 'admin123' && agency === 'admin') {
+                    return this.users.find(user => user.username === 'admin');
+                }
+
+                // للمستخدمين الآخرين
+                return this.users.find(user =>
+                    user.username === username &&
+                    user.password === password &&
+                    user.agency === agency &&
+                    user.status === 'active'
+                );
+            }
+
+            // إضافة مستخدم جديد
+            addUser(userData) {
+                // التحقق من عدم وجود المستخدم
+                const existingUser = this.users.find(user => user.username === userData.username);
+                if (existingUser) {
+                    return {
+                        success: false,
+                        message: 'اسم المستخدم موجود بالفعل'
+                    };
+                }
+
+                const newUser = {
+                    username: userData.username,
+                    password: userData.password,
+                    agency: userData.agency,
+                    role: userData.role,
+                    createdAt: new Date().toISOString(),
+                    status: 'active'
+                };
+
+                this.users.push(newUser);
+                this.saveUsers();
+                return {
+                    success: true,
+                    user: newUser
+                };
+            }
+
+            // إضافة جهة جديدة
+            addAgency(agencyData) {
+                // التحقق من عدم وجود الجهة
+                const existingAgency = this.agencies.find(agency => agency.code === agencyData.code);
+                if (existingAgency) {
+                    return {
+                        success: false,
+                        message: 'كود الجهة موجود بالفعل'
+                    };
+                }
+
+                const newAgency = {
+                    code: agencyData.code,
+                    name: agencyData.name,
+                    type: agencyData.type,
+                    city: agencyData.city || '',
+                    description: agencyData.description || '',
+                    createdAt: new Date().toISOString(),
+                    status: 'active'
+                };
+
+                this.agencies.push(newAgency);
+                this.saveAgencies();
+                return {
+                    success: true,
+                    agency: newAgency
+                };
+            }
+
+            // تحديث مستخدم
+            updateUser(username, updates) {
+                const userIndex = this.users.findIndex(user => user.username === username);
+                if (userIndex !== -1) {
+                    // إذا تم تحديث كلمة المرور، أضف تاريخ التحديث وحذف البيانات القديمة
+                    if (updates.password) {
+                        updates.lastPasswordUpdate = new Date().toISOString();
+                        updates.oldPasswords = undefined; // حذف كلمات المرور القديمة
+                    }
+                    // دمج البيانات الجديدة مع البيانات القديمة
+                    this.users[userIndex] = {
+                        ...this.users[userIndex],
+                        ...updates
+                    };
+                    // حذف أي خصائص undefined
+                    if (this.users[userIndex].oldPasswords === undefined) {
+                        delete this.users[userIndex].oldPasswords;
+                    }
+                    this.saveUsers();
+                    return true;
+                }
+                return false;
+            }
+
+            // تحديث جهة
+            updateAgency(code, updates) {
+                const agencyIndex = this.agencies.findIndex(agency => agency.code === code);
+                if (agencyIndex !== -1) {
+                    this.agencies[agencyIndex] = {...this.agencies[agencyIndex],
+                        ...updates
+                    };
+                    this.saveAgencies();
+                    return true;
+                }
+                return false;
+            }
+
+            // حذف مستخدم (تعطيل)
+            deleteUser(username) {
+                return this.updateUser(username, {
+                    status: 'inactive'
+                });
+            }
+
+            // حذف جهة (تعطيل)
+            deleteAgency(code) {
+                return this.updateAgency(code, {
+                    status: 'inactive'
+                });
+            }
+
+            // إضافة عينة جديدة
+            addSample(sampleData) {
+                const sample = {
+                    id: this.sampleCounter,
+                    sampleId: sampleData.sampleId,
+                    caseNumber: sampleData.caseNumber,
+                    collectionDate: sampleData.collectionDate,
+                    sampleType: sampleData.sampleType,
+                    quantity: sampleData.quantity,
+                    collectionLocation: sampleData.collectionLocation,
+                    targetAgency: sampleData.targetAgency,
+                    notes: sampleData.notes,
+                    collectorName: sampleData.collectorName,
+                    receiptTime: sampleData.receiptTime,
+                    registeredBy: sampleData.registeredBy,
+                    registeredByAgency: sampleData.registeredByAgency,
+                    registrationTime: new Date().toISOString(),
+                    status: 'pending',
+                    analysisStatus: 'جاهز للتحليل',
+                    lastUpdated: new Date().toISOString()
+                };
+
+                this.samples.push(sample);
+                this.sampleCounter++;
+                this.saveSamples();
+                this.saveCounter();
+                return sample;
+            }
+
+            // تحديث عينة
+            updateSample(sampleId, updates) {
+                const sampleIndex = this.samples.findIndex(sample => sample.sampleId === sampleId);
+                if (sampleIndex !== -1) {
+                    this.samples[sampleIndex] = {
+                        ...this.samples[sampleIndex],
+                        ...updates,
+                        lastUpdated: new Date().toISOString()
+                    };
+                    this.saveSamples();
+                    return this.samples[sampleIndex];
+                }
+                return null;
+            }
+
+            // حذف عينة
+            deleteSample(sampleId) {
+                const sampleIndex = this.samples.findIndex(sample => sample.sampleId === sampleId);
+                if (sampleIndex !== -1) {
+                    this.samples.splice(sampleIndex, 1);
+                    this.saveSamples();
+                    return true;
+                }
+                return false;
+            }
+
+            // الحصول على العينات حسب الجهة
+            getSamplesByAgency(agency) {
+                return this.samples.filter(sample => sample.targetAgency === agency);
+            }
+
+            // الحصول على العينات المسجلة بواسطة جهة معينة
+            getSamplesByRegisteredAgency(agency) {
+                return this.samples.filter(sample => sample.registeredByAgency === agency);
+            }
+
+            // الحصول على جميع العينات (للأدمن فقط)
+            getAllSamples() {
+                return this.samples;
+            }
+
+            // الحصول على جميع المستخدمين النشطين
+            getAllUsers() {
+                return this.users.filter(user => user.status === 'active');
+            }
+
+            // الحصول على جميع الجهات النشطة
+            getAllAgencies() {
+                return this.agencies.filter(agency => agency.status === 'active');
+            }
+
+            // تحديث حالة العينة
+            updateSampleStatus(sampleId, status) {
+                return this.updateSample(sampleId, {
+                    status: status
+                });
+            }
+
+            // تحديث حالة التحليل
+            updateAnalysisStatus(sampleId, status) {
+                return this.updateSample(sampleId, {
+                    analysisStatus: status
+                });
+            }
+
+            // إضافة حدث سلسلة حراسة
+            addCustodyEvent(eventData) {
+                const event = {
+                    id: 'event' + (this.custodyEvents.length + 1),
+                    sampleId: eventData.sampleId,
+                    type: eventData.type,
+                    title: eventData.title,
+                    description: eventData.description,
+                    responsible: eventData.responsible,
+                    timestamp: eventData.timestamp,
+                    icon: eventData.icon
+                };
+
+                this.custodyEvents.push(event);
+                this.saveCustodyEvents();
+                return event;
+            }
+
+            // الحصول على أحداث سلسلة حراسة لعينة معينة
+            getCustodyEvents(sampleId) {
+                return this.custodyEvents.filter(event => event.sampleId === sampleId);
+            }
+
+            // إضافة نتائج تحليل
+            addAnalysisResults(sampleId, results) {
+                if (!this.analysisResults[sampleId]) {
+                    this.analysisResults[sampleId] = {};
+                }
+                this.analysisResults[sampleId] = {
+                    ...this.analysisResults[sampleId],
+                    ...results,
+                    lastUpdated: new Date().toISOString()
+                };
+                this.saveAnalysisResults();
+                return this.analysisResults[sampleId];
+            }
+
+            // الحصول على نتائج تحليل
+            getAnalysisResults(sampleId) {
+                return this.analysisResults[sampleId] || null;
+            }
+
+            // إحصائيات
+            getStats(agency = null) {
+                let samples = agency ? this.getSamplesByAgency(agency) : this.samples;
+
+                return {
+                    total: samples.length,
+                    pending: samples.filter(s => s.status === 'pending').length,
+                    processing: samples.filter(s => s.status === 'processing').length,
+                    completed: samples.filter(s => s.status === 'completed').length,
+                    analysisInProgress: samples.filter(s => s.analysisStatus === 'قيد التحليل').length
+                };
+            }
+
+            // إحصائيات المستخدمين
+            getUserStats() {
+                return {
+                    total: this.users.length,
+                    active: this.users.filter(u => u.status === 'active').length,
+                    inactive: this.users.filter(u => u.status === 'inactive').length
+                };
+            }
+
+            // إحصائيات الجهات
+            getAgencyStats() {
+                return {
+                    total: this.agencies.length,
+                    active: this.agencies.filter(a => a.status === 'active').length,
+                    inactive: this.agencies.filter(a => a.status === 'inactive').length
+                };
+            }
+
+            // عينات اليوم
+            getTodaySamples() {
+                const today = new Date().toISOString().split('T')[0];
+                return this.samples.filter(sample =>
+                    sample.registrationTime.split('T')[0] === today
+                ).length;
+            }
+        }
+
+        // متغيرات النظام
+        let currentUser = null;
+        let db = new ToxiTrackDB();
+        let selectedSample = null;
+
+        // أسماء الجهات
+        let agencyNames = {};
+
+        // أسماء الأدوار
+        const roleNames = {
+            'admin': 'مدير النظام',
+            'lab': 'فني مختبر',
+            'prosecution': 'نيابة',
+            'police': 'شرطة',
+            'investigator': 'محقق'
+        };
+
+        // أسماء أنواع الجهات
+        const agencyTypeNames = {
+            'lab': 'مختبر',
+            'prosecution': 'نيابة',
+            'police': 'شرطة',
+            'hospital': 'مستشفى',
+            'court': 'محكمة',
+            'admin': 'إدارة',
+            'other': 'أخرى'
+        };
+
+        // أنواع أحداث سلسلة الحراسة
+        const eventTypes = {
+            'collection': { title: 'جمع العينة', icon: '🩸' },
+            'transfer': { title: 'نقل العينة', icon: '🚚' },
+            'reception': { title: 'استلام العينة', icon: '📦' },
+            'storage': { title: 'تخزين العينة', icon: '❄️' },
+            'analysis': { title: 'بدء التحليل', icon: '🔬' },
+            'verification': { title: 'التحقق من النتائج', icon: '✅' },
+            'report': { title: 'إصدار التقرير', icon: '📄' }
+        };
+
+        // تحديث أسماء الجهات من قاعدة البيانات
+        function updateAgencyNames() {
+            agencyNames = {};
+            db.getAllAgencies().forEach(agency => {
+                agencyNames[agency.code] = agency.name;
+            });
+            // إضافة الجهات غير النشطة أيضاً
+            db.agencies.forEach(agency => {
+                agencyNames[agency.code] = agency.name;
+            });
+        }
+
+        // ==================== تهيئة النظام ====================
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // تحديث السنة الحالية
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
             
-            document.getElementById('userWelcome').textContent = `مرحباً ${currentUser.username}`;
+            // تحديث أسماء الجهات
+            updateAgencyNames();
             
-            // إظهار أيقونة الأدمن للمستخدمين المناسبين
-            if (currentUser.role === 'admin') {
-                document.getElementById('adminIcon').style.display = 'flex';
+            // تحديث قوائم الجهات
+            updateAgencySelects();
+            
+            // تعيين التاريخ والوقت الحالي
+            const now = new Date();
+            const dateInput = document.getElementById('collectionDate');
+            const timeInput = document.getElementById('receiptTime');
+            
+            if (dateInput) {
+                dateInput.value = now.toISOString().split('T')[0];
             }
             
-            updateStatistics();
-            navigateToPage('mainPage');
+            if (timeInput) {
+                const localDateTime = new Date(now.getTime() - now.getTimezoneOffset() * 60000)
+                    .toISOString().slice(0, 16);
+                timeInput.value = localDateTime;
+            }
+
+            // توليد رقم العينة الأول
+            generateNewSampleId();
+
+            // إضافة تأثيرات اللمس
+            document.querySelectorAll('.icon-card').forEach(card => {
+                card.addEventListener('touchstart', function() {
+                    this.style.transform = 'scale(0.98)';
+                });
+                
+                card.addEventListener('touchend', function() {
+                    this.style.transform = '';
+                });
+            });
+            
+            // إغلاق النوافذ المنبثقة عند النقر خارجها
+            window.onclick = function(event) {
+                const modals = ['addUserModal', 'editSampleModal', 'addAgencyModal', 'editUserModal', 'viewSampleModal'];
+                modals.forEach(modalId => {
+                    const modal = document.getElementById(modalId);
+                    if (event.target === modal) {
+                        closeModal(modalId);
+                    }
+                });
+            };
+            
+            // اختصارات لوحة المفاتيح
+            document.addEventListener('keydown', function(event) {
+                // ESC لإغلاق النوافذ المنبثقة
+                if (event.key === 'Escape') {
+                    closeAllModals();
+                }
+                
+                // Ctrl+N لإضافة مستخدم جديد (للأدمن فقط)
+                if (event.ctrlKey && event.key === 'n' && currentUser && currentUser.role === 'admin') {
+                    event.preventDefault();
+                    showAddUserModal();
+                }
+            });
         });
 
-        // 🟢 ====================================================
-        // 🟢 تسجيل العينة (مدمج مع الخادم والمحلي)
-        // 🟢 ====================================================
-        document.getElementById('sampleForm').addEventListener('submit', async function(e) {
+        // ==================== وظائف التنقل ====================
+
+        function navigateToPage(pageId) {
+            const currentPage = document.querySelector('.page.active');
+            const targetPage = document.getElementById(pageId);
+
+            if (currentPage && targetPage && currentPage !== targetPage) {
+                // إخفاء الصفحة الحالية
+                currentPage.classList.remove('active');
+                currentPage.classList.add('prev');
+
+                // إظهار الصفحة الجديدة
+                setTimeout(() => {
+                    targetPage.classList.add('active');
+                    targetPage.classList.remove('prev');
+
+                    // تحديث محتوى الصفحة
+                    switch (pageId) {
+                        case 'mainPage':
+                            updateMainPageIcons();
+                            updateStats();
+                            break;
+                        case 'samplesListPage':
+                            loadSamplesList();
+                            break;
+                        case 'chainCustodyPage':
+                            loadCustodyData();
+                            break;
+                        case 'analysisPage':
+                            loadAnalysisData();
+                            break;
+                        case 'adminPage':
+                            loadUsersList();
+                            loadAllSamples();
+                            loadAgenciesList();
+                            updateAdminStats();
+                            break;
+                    }
+
+                    // تنظيف الصفحة السابقة
+                    setTimeout(() => {
+                        currentPage.classList.remove('prev');
+                    }, 500);
+                }, 50);
+            }
+        }
+
+        // ==================== تسجيل الدخول ====================
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const agency = document.getElementById('userAgency').value;
+
+            const user = db.authenticateUser(username, password, agency);
+
+            if (user) {
+                currentUser = user;
+
+                // عرض رسالة ترحيب
+                document.getElementById('userWelcome').textContent =
+                    `مرحباً ${username} - ${agencyNames[agency]}`;
+
+                // إضافة أيقونة الإدارة للأدمن
+                updateMainPageIcons();
+
+                // تحديث الإحصائيات
+                updateStats();
+
+                // الانتقال للصفحة الرئيسية
+                navigateToPage('mainPage');
+                showNotification('تم تسجيل الدخول بنجاح', 'success');
+            } else {
+                showNotification('بيانات تسجيل الدخول غير صحيحة', 'error');
+            }
+        });
+
+        // ==================== الصفحة الرئيسية ====================
+
+        function updateMainPageIcons() {
+            const iconsGrid = document.getElementById('mainIconsGrid');
+
+            // إزالة أيقونة الإدارة إذا كانت موجودة
+            const existingAdminIcon = document.querySelector('.admin-panel');
+            if (existingAdminIcon) {
+                existingAdminIcon.remove();
+            }
+
+            // إضافة أيقونة الإدارة للأدمن
+            if (currentUser && currentUser.role === 'admin') {
+                const adminIcon = document.createElement('div');
+                adminIcon.className = 'icon-card admin-panel';
+                adminIcon.onclick = () => navigateToPage('adminPage');
+                adminIcon.innerHTML = `
+                    <div class="icon">⚙️</div>
+                    <h3>إدارة النظام</h3>
+                    <p>إدارة المستخدمين والصلاحيات والعينات والجهات</p>
+                `;
+                iconsGrid.appendChild(adminIcon);
+            }
+        }
+
+        function updateStats() {
+            if (!currentUser) return;
+
+            let stats;
             
+            if (currentUser.agency === 'admin') {
+                stats = db.getStats();
+            } else {
+                stats = db.getStats(currentUser.agency);
+            }
+
+            document.getElementById('totalSamples').textContent = stats.total;
+            document.getElementById('pendingSamples').textContent = stats.pending;
+            document.getElementById('completedSamples').textContent = stats.completed;
+            document.getElementById('analysisInProgress').textContent = stats.analysisInProgress;
+        }
+
+        // ==================== تسجيل العينات ====================
+
+        document.getElementById('sampleForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
             const sampleData = {
                 sampleId: document.getElementById('newSampleId').textContent,
                 caseNumber: document.getElementById('caseNumber').value,
@@ -1642,123 +2794,220 @@
                 notes: document.getElementById('notes').value,
                 collectorName: document.getElementById('collectorName').value,
                 receiptTime: document.getElementById('receiptTime').value,
-                registeredBy: currentUser?.username || 'غير معروف',
-                registrationTime: new Date().toISOString(),
-                status: 'pending'
+                registeredBy: currentUser.username,
+                registeredByAgency: currentUser.agency
             };
-            
-            let saveSuccess = false;
-            
-            // 1. حاول الحفظ على الخادم أولاً
-            if (currentUser?.token) {
-                saveSuccess = await saveSampleToServer(sampleData);
-            }
-            
-            // 2. إذا فشل الحفظ على الخادم أو لم يكن هناك اتصال، احفظ محلياً
-            if (!saveSuccess) {
-                const localSamples = JSON.parse(localStorage.getItem('toxitrack_samples') || '[]');
-                localSamples.push(sampleData);
-                localStorage.setItem('toxitrack_samples', JSON.stringify(localSamples));
-                saveSuccess = true;
-                showNotification('تم حفظ العينة محلياً (لا يوجد اتصال بالخادم)', 'warning');
-            } else {
-                showNotification('تم حفظ العينة على الخادم بنجاح', 'success');
-            }
-            
-            if (saveSuccess) {
+
+            const savedSample = db.addSample(sampleData);
+
+            if (savedSample) {
+                showNotification('تم حفظ العينة بنجاح', 'success');
+
+                // إعادة تعيين النموذج وتوليد رقم جديد
                 this.reset();
                 generateNewSampleId();
-                updateStatistics();
+                updateStats();
+                
+                // إضافة حدث جمع العينة تلقائياً
+                const eventData = {
+                    sampleId: savedSample.sampleId,
+                    type: 'collection',
+                    title: 'جمع العينة',
+                    description: `تم جمع العينة بواسطة ${sampleData.collectorName} في ${sampleData.collectionLocation}`,
+                    responsible: sampleData.collectorName,
+                    timestamp: sampleData.receiptTime,
+                    icon: '🩸'
+                };
+                db.addCustodyEvent(eventData);
+            } else {
+                showNotification('حدث خطأ في حفظ العينة', 'error');
             }
         });
 
-        // 🟢 ====================================================
-        // 🟢 تحميل قائمة العينات (مدمج)
-        // 🟢 ====================================================
-        async function loadSamplesForAgency() {
-            const tbody = document.getElementById('samplesTableBody');
-            tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 20px;">جاري التحميل...</td></tr>';
+        function generateNewSampleId() {
+            const year = new Date().getFullYear();
+            const paddedCounter = String(db.sampleCounter).padStart(3, '0');
+            const newId = `TXK-${year}-${paddedCounter}`;
             
+            document.getElementById('newSampleId').textContent = newId;
+        }
+
+        function printBarcode() {
+            const sampleId = document.getElementById('newSampleId').textContent;
+            showNotification(`جاري طباعة الباركود للعينة: ${sampleId}`);
+            
+            setTimeout(() => {
+                showNotification('تم طباعة الباركود بنجاح', 'success');
+            }, 2000);
+        }
+
+        // ==================== قائمة العينات ====================
+
+        function loadSamplesList() {
+            if (!currentUser) return;
+
+            const agencyNameElement = document.getElementById('agencyName');
+            const tableBody = document.getElementById('samplesTableBody');
+
+            agencyNameElement.textContent = agencyNames[currentUser.agency];
+
             let samples = [];
-            
-            // 1. حاول جلب البيانات من الخادم
-            if (currentUser?.token) {
-                samples = await loadSamplesFromServer();
+            if (currentUser.agency === 'admin') {
+                samples = db.getAllSamples();
+            } else {
+                samples = db.getSamplesByAgency(currentUser.agency);
             }
-            
-            // 2. إذا فشل، استخدم البيانات المحلية
+
+            tableBody.innerHTML = '';
+
             if (samples.length === 0) {
-                samples = JSON.parse(localStorage.getItem('toxitrack_samples') || '[]');
-                if (samples.length > 0) {
-                    showNotification('عرض البيانات المحلية (لا يوجد اتصال بالخادم)', 'warning');
-                }
-            }
-            
-            // 3. عرض البيانات
-            tbody.innerHTML = '';
-            if (samples.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 20px;">لا توجد عينات</td></tr>';
+                tableBody.innerHTML = '<tr><td colspan="7">لا توجد عينات</td></tr>';
                 return;
             }
+
+            samples.forEach(sample => {
+                const row = document.createElement('tr');
+
+                const statusClass = `status-${sample.status}`;
+                const statusText = {
+                    'pending': 'معلقة',
+                    'processing': 'قيد المعالجة',
+                    'completed': 'مكتملة'
+                }[sample.status] || 'غير محدد';
+
+                // التحقق من صلاحية التعديل
+                const canEdit = currentUser.role === 'admin' || currentUser.agency === sample.targetAgency;
+
+                row.innerHTML = `
+                    <td>${sample.sampleId}</td>
+                    <td>${sample.caseNumber}</td>
+                    <td>${getSampleTypeText(sample.sampleType)}</td>
+                    <td>${formatDate(sample.collectionDate)}</td>
+                    <td>${agencyNames[sample.registeredByAgency] || sample.registeredByAgency}</td>
+                    <td><span class="status-badge ${statusClass}">${statusText}</span></td>
+                    <td>
+                        <button class="btn btn-primary btn-small" onclick="viewSampleDetails('${sample.sampleId}')">عرض</button>
+                        ${canEdit ? `<button class="btn btn-warning btn-small" onclick="editSample('${sample.sampleId}')">تعديل</button>` : ''}
+                        ${currentUser.role === 'admin' ? `<button class="btn btn-danger btn-small" onclick="deleteSample('${sample.sampleId}')">حذف</button>` : ''}
+                    </td>
+                `;
+                
+                tableBody.appendChild(row);
+            });
+        }
+
+        function refreshSamplesList() {
+            loadSamplesList();
+            showNotification('تم تحديث القائمة', 'success');
+        }
+
+        // ==================== سلسلة الحراسة ====================
+
+        function loadCustodyData() {
+            if (!currentUser) return;
+
+            const samples = db.getAllSamples();
+            const tbody = document.getElementById('custodySamplesList');
+            tbody.innerHTML = '';
             
+            if (samples.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="5">لا توجد عينات</td></tr>';
+                return;
+            }
+
             samples.forEach(sample => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td>${sample.sampleId}</td>
                     <td>${sample.caseNumber}</td>
-                    <td>${sample.sampleType}</td>
-                    <td>${sample.collectionDate}</td>
-                    <td>${sample.status}</td>
-                    <td><button class="btn btn-primary btn-small">عرض</button></td>
+                    <td><span style="padding: 4px 8px; border-radius: 12px; font-size: 0.8rem; background: ${getStatusColor(sample.status)}">${sample.status}</span></td>
+                    <td>${formatDate(sample.lastUpdated)}</td>
+                    <td><button class="btn btn-primary btn-small" onclick="selectSampleForCustody('${sample.sampleId}')">تتبع</button></td>
                 `;
                 tbody.appendChild(row);
             });
-        }
-
-        // 🔵 ====================================================
-        // 🔵 سلسلة الحراسة (تعمل محلياً - تحتاج لتعديل لترسل للخادم)
-        // 🔵 ====================================================
-        function loadCustodyData() {
-            // هذه بيانات تجريبية محلية
-            const samples = [
-                { id: 'TXK-2024-0456', caseNumber: '2024/789', status: 'قيد التحليل', lastUpdate: '2024-03-15' },
-                { id: 'TXK-2024-0457', caseNumber: '2024/790', status: 'مكتملة', lastUpdate: '2024-03-14' }
-            ];
-            
-            const tbody = document.getElementById('custodySamplesList');
-            tbody.innerHTML = '';
-            samples.forEach(sample => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${sample.id}</td>
-                    <td>${sample.caseNumber}</td>
-                    <td>${sample.status}</td>
-                    <td>${sample.lastUpdate}</td>
-                    <td><button class="btn btn-primary btn-small" onclick="selectSampleForCustody('${sample.id}')">تتبع</button></td>
-                `;
-                tbody.appendChild(row);
-            });
-            
-            // تحميل الأحداث المحلية
-            custodyEvents = JSON.parse(localStorage.getItem('custody_events') || '[]');
         }
 
         function selectSampleForCustody(sampleId) {
-            const sample = { id: sampleId, caseNumber: '2024/789', type: 'دم', collector: 'د. أحمد محمود', agency: 'مستشفى القاهرة' };
+            const sample = db.getAllSamples().find(s => s.sampleId === sampleId);
+            if (!sample) return;
+            
             selectedSample = sample;
             
-            document.getElementById('custodySampleCard').innerHTML = `
-                <h3 style="margin-bottom: 10px;">🔍 العينة ${sample.id}</h3>
+            // تحديث بطاقة العينة
+            const sampleCard = document.getElementById('custodySampleCard');
+            sampleCard.innerHTML = `
+                <h3 style="margin-bottom: 10px;">🔍 العينة ${sample.sampleId}</h3>
                 <div class="sample-info-grid">
-                    <div class="sample-info-item"><div style="font-size: 0.85rem; opacity: 0.8;">رقم القضية</div><div style="font-weight: bold;">${sample.caseNumber}</div></div>
-                    <div class="sample-info-item"><div style="font-size: 0.85rem; opacity: 0.8;">نوع العينة</div><div style="font-weight: bold;">${sample.type}</div></div>
-                    <div class="sample-info-item"><div style="font-size: 0.85rem; opacity: 0.8;">جامع العينة</div><div style="font-weight: bold;">${sample.collector}</div></div>
-                    <div class="sample-info-item"><div style="font-size: 0.85rem; opacity: 0.8;">الجهة المرسلة</div><div style="font-weight: bold;">${sample.agency}</div></div>
+                    <div class="sample-info-item">
+                        <div style="font-size: 0.85rem; opacity: 0.8;">رقم القضية</div>
+                        <div style="font-weight: bold;">${sample.caseNumber}</div>
+                    </div>
+                    <div class="sample-info-item">
+                        <div style="font-size: 0.85rem; opacity: 0.8;">نوع العينة</div>
+                        <div style="font-weight: bold;">${getSampleTypeText(sample.sampleType)}</div>
+                    </div>
+                    <div class="sample-info-item">
+                        <div style="font-size: 0.85rem; opacity: 0.8;">جامع العينة</div>
+                        <div style="font-weight: bold;">${sample.collectorName || 'غير محدد'}</div>
+                    </div>
+                    <div class="sample-info-item">
+                        <div style="font-size: 0.85rem; opacity: 0.8;">الجهة المرسلة</div>
+                        <div style="font-weight: bold;">${agencyNames[sample.registeredByAgency] || sample.registeredByAgency}</div>
+                    </div>
                 </div>
             `;
             
+            // تحديث خط الزمن
             updateCustodyTimeline(sampleId);
+            
             showNotification(`تم اختيار العينة ${sampleId} للتتبع`, 'success');
+        }
+
+        function updateCustodyTimeline(sampleId) {
+            const timeline = document.getElementById('custodyTimeline');
+            const events = db.getCustodyEvents(sampleId);
+            
+            if (events.length === 0) {
+                timeline.innerHTML = `
+                    <div style="text-align: center; padding: 40px; color: #7f8c8d;">
+                        <div style="font-size: 3rem; margin-bottom: 20px;">📋</div>
+                        <h3 style="color: #2c3e50;">لا توجد أحداث مسجلة</h3>
+                        <p>لم يتم تسجيل أي أحداث في سلسلة حراسة هذه العينة بعد</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            timeline.innerHTML = '';
+            
+            // فرز الأحداث حسب التاريخ
+            events.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
+            
+            events.forEach((event, index) => {
+                const eventDate = new Date(event.timestamp);
+                const dateString = formatDate(event.timestamp);
+                const timeString = formatTime(event.timestamp);
+                
+                const timelineItem = document.createElement('div');
+                timelineItem.className = 'timeline-item';
+                timelineItem.innerHTML = `
+                    <div class="timeline-icon">${event.icon}</div>
+                    <div class="timeline-content">
+                        <h4>${event.title}</h4>
+                        <p>${event.description}</p>
+                        <div class="timeline-date">
+                            <span>📅 ${dateString}</span>
+                            <span>⏰ ${timeString}</span>
+                        </div>
+                        <div style="margin-top: 10px; font-size: 0.85rem; color: #667eea;">
+                            <strong>المسؤول:</strong> ${event.responsible}
+                        </div>
+                    </div>
+                `;
+                
+                timeline.appendChild(timelineItem);
+            });
         }
 
         function addCustodyEvent() {
@@ -1777,17 +3026,8 @@
                 return;
             }
             
-            const eventTypes = {
-                collection: { title: 'جمع العينة', icon: '🩸' },
-                transfer: { title: 'نقل العينة', icon: '🚚' },
-                reception: { title: 'استلام العينة', icon: '📦' },
-                storage: { title: 'تخزين العينة', icon: '❄️' },
-                analysis: { title: 'بدء التحليل', icon: '🔬' }
-            };
-            
-            const newEvent = {
-                id: 'event' + (custodyEvents.length + 1),
-                sampleId: selectedSample.id,
+            const eventData = {
+                sampleId: selectedSample.sampleId,
                 type: eventType,
                 title: eventTypes[eventType]?.title || 'حدث جديد',
                 description: details,
@@ -1796,131 +3036,18 @@
                 icon: eventTypes[eventType]?.icon || '📝'
             };
             
-            custodyEvents.push(newEvent);
-            localStorage.setItem('custody_events', JSON.stringify(custodyEvents));
+            db.addCustodyEvent(eventData);
             
-            updateCustodyTimeline(selectedSample.id);
+            // تحديث خط الزمن
+            updateCustodyTimeline(selectedSample.sampleId);
+            
+            // إعادة تعيين النموذج
             document.getElementById('custodyEventType').value = '';
             document.getElementById('custodyResponsible').value = '';
             document.getElementById('custodyEventTime').value = '';
             document.getElementById('custodyEventDetails').value = '';
             
-            showNotification('تم إضافة الحدث بنجاح (محلياً)', 'success');
-        }
-
-        function updateCustodyTimeline(sampleId) {
-            const timeline = document.getElementById('custodyTimeline');
-            const sampleEvents = custodyEvents.filter(event => event.sampleId === sampleId);
-            
-            if (sampleEvents.length === 0) {
-                timeline.innerHTML = `<div style="text-align: center; padding: 40px; color: #7f8c8d;"><div style="font-size: 3rem; margin-bottom: 20px;">📋</div><h3 style="color: #2c3e50;">لا توجد أحداث مسجلة</h3><p>لم يتم تسجيل أي أحداث في سلسلة حراسة هذه العينة بعد</p></div>`;
-                return;
-            }
-            
-            timeline.innerHTML = '';
-            sampleEvents.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp));
-            
-            sampleEvents.forEach((event, index) => {
-                const eventDate = new Date(event.timestamp);
-                const dateString = eventDate.toLocaleDateString('ar-EG');
-                const timeString = eventDate.toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' });
-                
-                const timelineItem = document.createElement('div');
-                timelineItem.className = 'timeline-item';
-                timelineItem.innerHTML = `
-                    <div class="timeline-icon">${event.icon}</div>
-                    <div class="timeline-content">
-                        <h4>${event.title}</h4>
-                        <p>${event.description}</p>
-                        <div class="timeline-date"><span>📅 ${dateString}</span><span>⏰ ${timeString}</span></div>
-                        <div style="margin-top: 10px; font-size: 0.85rem; color: #667eea;"><strong>المسؤول:</strong> ${event.responsible}</div>
-                    </div>
-                `;
-                timeline.appendChild(timelineItem);
-            });
-        }
-
-        // 🔵 ====================================================
-        // 🔵 التحليل والتحقق (تعمل محلياً - تحتاج لتعديل لترسل للخادم)
-        // 🔵 ====================================================
-        function loadAnalysisData() {
-            const samples = [
-                { id: 'TXK-2024-0456', caseNumber: '2024/789', type: 'دم', analysisStatus: 'قيد التحليل', receiptDate: '2024-03-10' },
-                { id: 'TXK-2024-0459', caseNumber: '2024/792', type: 'بول', analysisStatus: 'جاهز للتحليل', receiptDate: '2024-03-11' }
-            ];
-            
-            const tbody = document.getElementById('analysisSamplesList');
-            tbody.innerHTML = '';
-            samples.forEach(sample => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${sample.id}</td>
-                    <td>${sample.caseNumber}</td>
-                    <td>${sample.type}</td>
-                    <td>${sample.analysisStatus}</td>
-                    <td>${sample.receiptDate}</td>
-                    <td><button class="btn btn-primary btn-small" onclick="selectSampleForAnalysis('${sample.id}')">تحليل</button></td>
-                `;
-                tbody.appendChild(row);
-            });
-            
-            analysisResults = JSON.parse(localStorage.getItem('analysis_results') || '{}');
-        }
-
-        function selectSampleForAnalysis(sampleId) {
-            const sample = { id: sampleId, caseNumber: '2024/789', type: 'دم', collector: 'غير معروف', collectionDate: '2024-03-10', agency: 'غير معروفة' };
-            selectedSample = sample;
-            
-            document.getElementById('analysisSampleCard').innerHTML = `
-                <h3 style="margin-bottom: 10px;">🔬 العينة ${sample.id}</h3>
-                <div class="sample-info-grid">
-                    <div class="sample-info-item"><div style="font-size: 0.85rem; opacity: 0.8;">رقم القضية</div><div style="font-weight: bold;">${sample.caseNumber}</div></div>
-                    <div class="sample-info-item"><div style="font-size: 0.85rem; opacity: 0.8;">نوع العينة</div><div style="font-weight: bold;">${sample.type}</div></div>
-                    <div class="sample-info-item"><div style="font-size: 0.85rem; opacity: 0.8;">تاريخ الجمع</div><div style="font-weight: bold;">${sample.collectionDate}</div></div>
-                    <div class="sample-info-item"><div style="font-size: 0.85rem; opacity: 0.8;">الجهة المرسلة</div><div style="font-weight: bold;">${sample.agency}</div></div>
-                </div>
-            `;
-            
-            updateAnalysisResults(sampleId);
-            showNotification(`تم اختيار العينة ${sampleId} للتحليل`, 'success');
-        }
-
-        // ... (بقية دوال التحليل والتحقق من الكود السابق)
-        // للحفاظ على الطول، تم اختصارها. يمكنك إضافة الدوال التالية:
-        // updateAnalysisResults, startPreparation, verifyPreparation, runInitialTests, 
-        // generateInitialReport, runAdvancedTests, verifyAdvancedResults, 
-        // verifyFinalResults, certifyAnalysis, saveAnalysisResults, 
-        // generateAnalysisReport, resetAnalysisForm
-
-        // 🟢 ====================================================
-        // 🟢 وظائف مساعدة مشتركة
-        // 🟢 ====================================================
-        function logout() {
-            currentUser = null;
-            selectedSample = null;
-            document.getElementById('userWelcome').textContent = '';
-            document.getElementById('adminIcon').style.display = 'none';
-            document.getElementById('loginForm').reset();
-            navigateToPage('loginPage');
-            showNotification('تم تسجيل الخروج بنجاح');
-        }
-
-        function generateNewSampleId() {
-            const date = new Date();
-            const year = date.getFullYear();
-            const month = (date.getMonth() + 1).toString().padStart(2, '0');
-            const day = date.getDate().toString().padStart(2, '0');
-            const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
-            const sampleId = `TXK-${year}${month}${day}-${random}`;
-            document.getElementById('newSampleId').textContent = sampleId;
-        }
-
-        function updateStatistics() {
-            // هذه إحصائيات تجريبية
-            document.getElementById('totalSamples').textContent = '24';
-            document.getElementById('pendingSamples').textContent = '8';
-            document.getElementById('completedSamples').textContent = '12';
-            document.getElementById('analysisInProgress').textContent = '4';
+            showNotification('تم إضافة الحدث بنجاح', 'success');
         }
 
         function refreshCustodyData() {
@@ -1928,51 +3055,1053 @@
             showNotification('تم تحديث بيانات سلسلة الحراسة', 'success');
         }
 
+        // ==================== التحليل والتحقق ====================
+
+        function loadAnalysisData() {
+            if (!currentUser) return;
+
+            const samples = db.getAllSamples().filter(sample => 
+                sample.analysisStatus !== 'مكتمل' || currentUser.role === 'admin'
+            );
+            
+            const tbody = document.getElementById('analysisSamplesList');
+            tbody.innerHTML = '';
+            
+            if (samples.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="6">لا توجد عينات جاهزة للتحليل</td></tr>';
+                return;
+            }
+
+            samples.forEach(sample => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${sample.sampleId}</td>
+                    <td>${sample.caseNumber}</td>
+                    <td>${getSampleTypeText(sample.sampleType)}</td>
+                    <td>
+                        <span style="padding: 4px 8px; border-radius: 12px; font-size: 0.8rem; background: ${getAnalysisStatusColor(sample.analysisStatus)}">
+                            ${getAnalysisStatusText(sample.analysisStatus)}
+                        </span>
+                    </td>
+                    <td>${formatDate(sample.receiptTime)}</td>
+                    <td>
+                        <button class="btn btn-primary btn-small" onclick="selectSampleForAnalysis('${sample.sampleId}')">
+                            تحليل
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function selectSampleForAnalysis(sampleId) {
+            const sample = db.getAllSamples().find(s => s.sampleId === sampleId);
+            if (!sample) return;
+            
+            selectedSample = sample;
+            
+            // تحديث بطاقة العينة
+            const sampleCard = document.getElementById('analysisSampleCard');
+            sampleCard.innerHTML = `
+                <h3 style="margin-bottom: 10px;">🔬 العينة ${sample.sampleId}</h3>
+                <div class="sample-info-grid">
+                    <div class="sample-info-item">
+                        <div style="font-size: 0.85rem; opacity: 0.8;">رقم القضية</div>
+                        <div style="font-weight: bold;">${sample.caseNumber}</div>
+                    </div>
+                    <div class="sample-info-item">
+                        <div style="font-size: 0.85rem; opacity: 0.8;">نوع العينة</div>
+                        <div style="font-weight: bold;">${getSampleTypeText(sample.sampleType)}</div>
+                    </div>
+                    <div class="sample-info-item">
+                        <div style="font-size: 0.85rem; opacity: 0.8;">تاريخ الجمع</div>
+                        <div style="font-weight: bold;">${formatDate(sample.collectionDate)}</div>
+                    </div>
+                    <div class="sample-info-item">
+                        <div style="font-size: 0.85rem; opacity: 0.8;">الجهة المرسلة</div>
+                        <div style="font-weight: bold;">${agencyNames[sample.registeredByAgency] || sample.registeredByAgency}</div>
+                    </div>
+                </div>
+            `;
+            
+            // تحديث نتائج التحليل
+            updateAnalysisResults(sampleId);
+            
+            showNotification(`تم اختيار العينة ${sampleId} للتحليل`, 'success');
+        }
+
+        function updateAnalysisResults(sampleId) {
+            const results = db.getAnalysisResults(sampleId);
+            
+            if (!results) {
+                // إذا لم توجد نتائج، عرض رسالة
+                document.getElementById('initialTestResults').innerHTML = `
+                    <div style="text-align: center; padding: 20px; color: #7f8c8d;">
+                        لم يتم إجراء فحوصات أولية بعد
+                    </div>
+                `;
+                
+                document.getElementById('advancedTestResults').innerHTML = `
+                    <div style="text-align: center; padding: 20px; color: #7f8c8d;">
+                        لم يتم إجراء تحاليل متقدمة بعد
+                    </div>
+                `;
+                
+                document.getElementById('finalVerificationResults').innerHTML = `
+                    <div style="text-align: center; padding: 20px; color: #7f8c8d;">
+                        لم يتم إجراء تحقق نهائي بعد
+                    </div>
+                `;
+                return;
+            }
+            
+            // تحديث نتائج الفحوصات الأولية
+            const initialResultsDiv = document.getElementById('initialTestResults');
+            if (results.initialTests) {
+                initialResultsDiv.innerHTML = '';
+                Object.entries(results.initialTests).forEach(([toxin, data]) => {
+                    const item = document.createElement('div');
+                    item.className = 'test-result-item';
+                    item.innerHTML = `
+                        <div class="test-name">${getToxinName(toxin)}</div>
+                        <div class="test-value ${data.detected ? 'test-positive' : 'test-negative'}">
+                            ${data.detected ? 'إيجابي' : 'سلبي'} - ${data.concentration}
+                        </div>
+                    `;
+                    initialResultsDiv.appendChild(item);
+                });
+            }
+            
+            // تحديث نتائج التحاليل المتقدمة
+            const advancedResultsDiv = document.getElementById('advancedTestResults');
+            if (results.advancedTests) {
+                advancedResultsDiv.innerHTML = '';
+                Object.entries(results.advancedTests).forEach(([key, value]) => {
+                    if (typeof value === 'object') {
+                        Object.entries(value).forEach(([subKey, subValue]) => {
+                            const item = document.createElement('div');
+                            item.className = 'test-result-item';
+                            item.innerHTML = `
+                                <div class="test-name">${getToxinName(subKey)}</div>
+                                <div class="test-value test-positive">${subValue}</div>
+                            `;
+                            advancedResultsDiv.appendChild(item);
+                        });
+                    }
+                });
+            }
+            
+            // تحديث نتائج التحقق النهائي
+            const finalResultsDiv = document.getElementById('finalVerificationResults');
+            if (results.finalVerification) {
+                finalResultsDiv.innerHTML = `
+                    <div class="test-result-item">
+                        <div class="test-name">حالة التحقق</div>
+                        <div class="test-value ${results.finalVerification.status === 'مكتمل' ? 'test-negative' : 'test-pending'}">
+                            ${results.finalVerification.status}
+                        </div>
+                    </div>
+                    <div class="test-result-item">
+                        <div class="test-name">تم المراجعة بواسطة</div>
+                        <div class="test-value test-pending">${results.finalVerification.reviewedBy || 'غير محدد'}</div>
+                    </div>
+                `;
+            }
+        }
+
+        // ===== وظائف التحليل =====
+
+        function startPreparation() {
+            if (!selectedSample) {
+                showNotification('يجب اختيار عينة أولاً', 'error');
+                return;
+            }
+            
+            showNotification(`بدأ تحضير العينة ${selectedSample.sampleId}`, 'success');
+            
+            // تحديث حالة التحليل
+            db.updateAnalysisStatus(selectedSample.sampleId, 'قيد التحضير');
+            
+            // إضافة حدث لسلسلة الحراسة
+            const eventData = {
+                sampleId: selectedSample.sampleId,
+                type: 'analysis',
+                title: 'بدء تحضير العينة',
+                description: 'بدأ تحضير العينة للتحليل المخبري',
+                responsible: currentUser.username,
+                timestamp: new Date().toISOString(),
+                icon: '🔬'
+            };
+            
+            db.addCustodyEvent(eventData);
+        }
+
+        function verifyPreparation() {
+            if (!selectedSample) {
+                showNotification('يجب اختيار عينة أولاً', 'error');
+                return;
+            }
+            
+            db.updateAnalysisStatus(selectedSample.sampleId, 'جاهز للفحص');
+            showNotification(`تم التحقق من تحضير العينة ${selectedSample.sampleId}`, 'success');
+        }
+
+        function runInitialTests() {
+            if (!selectedSample) {
+                showNotification('يجب اختيار عينة أولاً', 'error');
+                return;
+            }
+            
+            // إنشاء نتائج وهمية للفحوصات الأولية
+            const initialTests = {
+                opioids: { detected: Math.random() > 0.5, concentration: (Math.random() * 1).toFixed(2) + ' ملغ/لتر' },
+                benzodiazepines: { detected: Math.random() > 0.7, concentration: (Math.random() * 0.5).toFixed(2) + ' ملغ/لتر' },
+                cannabis: { detected: Math.random() > 0.3, concentration: (Math.random() * 3).toFixed(1) + ' نانوغرام/مل' },
+                amphetamines: { detected: Math.random() > 0.6, concentration: (Math.random() * 2).toFixed(2) + ' ملغ/لتر' },
+                alcohol: { detected: Math.random() > 0.4, concentration: (Math.random() * 0.2).toFixed(2) + '%' }
+            };
+            
+            db.addAnalysisResults(selectedSample.sampleId, { initialTests });
+            db.updateAnalysisStatus(selectedSample.sampleId, 'قيد الفحص الأولي');
+            
+            showNotification(`تم إجراء الفحوصات الأولية للعينة ${selectedSample.sampleId}`, 'success');
+            updateAnalysisResults(selectedSample.sampleId);
+        }
+
+        function generateInitialReport() {
+            if (!selectedSample) {
+                showNotification('يجب اختيار عينة أولاً', 'error');
+                return;
+            }
+            
+            showNotification(`تم إنشاء التقرير الأولي للعينة ${selectedSample.sampleId}`, 'success');
+        }
+
+        function runAdvancedTests() {
+            if (!selectedSample) {
+                showNotification('يجب اختيار عينة أولاً', 'error');
+                return;
+            }
+            
+            // إنشاء نتائج وهمية للتحاليل المتقدمة
+            const advancedTests = {
+                method: 'GC/MS',
+                opioidsDetailed: { 
+                    morphine: (Math.random() * 0.5).toFixed(2) + ' ملغ/لتر',
+                    codeine: (Math.random() * 0.3).toFixed(2) + ' ملغ/لتر'
+                },
+                cannabisDetailed: { 
+                    THC: (Math.random() * 2.5).toFixed(1) + ' نانوغرام/مل',
+                    CBD: (Math.random() * 1).toFixed(1) + ' نانوغرام/مل'
+                },
+                alcoholDetailed: { 
+                    ethanol: (Math.random() * 0.15).toFixed(2) + '%'
+                }
+            };
+            
+            db.addAnalysisResults(selectedSample.sampleId, { advancedTests });
+            db.updateAnalysisStatus(selectedSample.sampleId, 'قيد التحليل المتقدم');
+            
+            showNotification(`تم إجراء التحاليل المتقدمة للعينة ${selectedSample.sampleId}`, 'success');
+            updateAnalysisResults(selectedSample.sampleId);
+        }
+
+        function verifyAdvancedResults() {
+            if (!selectedSample) {
+                showNotification('يجب اختيار عينة أولاً', 'error');
+                return;
+            }
+            
+            showNotification(`تم مراجعة نتائج التحاليل المتقدمة للعينة ${selectedSample.sampleId}`, 'success');
+        }
+
+        function verifyFinalResults() {
+            if (!selectedSample) {
+                showNotification('يجب اختيار عينة أولاً', 'error');
+                return;
+            }
+            
+            const finalVerification = {
+                status: 'مكتمل',
+                reviewedBy: currentUser.username,
+                notes: 'تم التحقق من جميع النتائج واعتمادها',
+                timestamp: new Date().toISOString()
+            };
+            
+            db.addAnalysisResults(selectedSample.sampleId, { finalVerification });
+            db.updateAnalysisStatus(selectedSample.sampleId, 'قيد المراجعة النهائية');
+            
+            showNotification(`تم التحقق النهائي من نتائج العينة ${selectedSample.sampleId}`, 'success');
+            updateAnalysisResults(selectedSample.sampleId);
+        }
+
+        function certifyAnalysis() {
+            if (!selectedSample) {
+                showNotification('يجب اختيار عينة أولاً', 'error');
+                return;
+            }
+            
+            db.updateAnalysisStatus(selectedSample.sampleId, 'مكتمل');
+            db.updateSampleStatus(selectedSample.sampleId, 'completed');
+            
+            showNotification(`تم اعتماد التقرير النهائي للعينة ${selectedSample.sampleId}`, 'success');
+        }
+
+        function saveAnalysisResults() {
+            if (!selectedSample) {
+                showNotification('يجب اختيار عينة أولاً', 'error');
+                return;
+            }
+            
+            const toxins = [];
+            if (document.getElementById('toxin_opioids').checked) toxins.push('أفيونيات');
+            if (document.getElementById('toxin_benzos').checked) toxins.push('بنزوديازيبينات');
+            if (document.getElementById('toxin_cannabis').checked) toxins.push('حشيش');
+            if (document.getElementById('toxin_amphetamines').checked) toxins.push('منشطات');
+            if (document.getElementById('toxin_alcohol').checked) toxins.push('كحول');
+            if (document.getElementById('toxin_cocaine').checked) toxins.push('كوكايين');
+            
+            const concentration = document.getElementById('toxin_concentration').value;
+            const detectionLimit = document.getElementById('detection_limit').value;
+            const notes = document.getElementById('analysis_notes').value;
+            
+            const manualEntry = {
+                toxins: toxins,
+                concentration: concentration,
+                detectionLimit: detectionLimit,
+                notes: notes,
+                enteredBy: currentUser.username,
+                timestamp: new Date().toISOString()
+            };
+            
+            db.addAnalysisResults(selectedSample.sampleId, { manualEntry });
+            
+            showNotification(`تم حفظ نتائج التحليل للعينة ${selectedSample.sampleId}`, 'success');
+        }
+
+        function generateAnalysisReport() {
+            if (!selectedSample) {
+                showNotification('يجب اختيار عينة أولاً', 'error');
+                return;
+            }
+            
+            showNotification(`جاري إنشاء تقرير التحليل للعينة ${selectedSample.sampleId}...`, 'success');
+            
+            // محاكاة إنشاء التقرير
+            setTimeout(() => {
+                showNotification(`تم إنشاء تقرير التحليل للعينة ${selectedSample.sampleId}`, 'success');
+            }, 2000);
+        }
+
+        function resetAnalysisForm() {
+            document.getElementById('toxin_opioids').checked = false;
+            document.getElementById('toxin_benzos').checked = false;
+            document.getElementById('toxin_cannabis').checked = false;
+            document.getElementById('toxin_amphetamines').checked = false;
+            document.getElementById('toxin_alcohol').checked = false;
+            document.getElementById('toxin_cocaine').checked = false;
+            document.getElementById('toxin_concentration').value = '';
+            document.getElementById('detection_limit').value = '';
+            document.getElementById('analysis_notes').value = '';
+            
+            showNotification('تم إعادة تعيين نموذج التحليل', 'success');
+        }
+
         function refreshAnalysisData() {
             loadAnalysisData();
             showNotification('تم تحديث بيانات التحليل', 'success');
         }
 
-        function refreshSamplesList() {
-            loadSamplesForAgency();
-            showNotification('تم تحديث قائمة العينات', 'success');
+        // ==================== إدارة النظام ====================
+
+        // تحميل قائمة المستخدمين
+        function loadUsersList() {
+            const tableBody = document.getElementById('usersTableBody');
+            const users = db.getAllUsers();
+
+            tableBody.innerHTML = '';
+            
+            if (users.length === 0) {
+                tableBody.innerHTML = '<tr><td colspan="6">لا يوجد مستخدمين</td></tr>';
+                return;
+            }
+
+            users.forEach(user => {
+                const row = document.createElement('tr');
+                
+                row.innerHTML = `
+                    <td>${user.username}</td>
+                    <td>${agencyNames[user.agency] || user.agency}</td>
+                    <td>${roleNames[user.role] || user.role}</td>
+                    <td>${formatDate(user.createdAt)}</td>
+                    <td><span class="status-badge ${user.status === 'active' ? 'status-completed' : 'status-pending'}">${user.status === 'active' ? 'نشط' : 'معطل'}</span></td>
+                    <td>
+                        <button class="btn btn-warning btn-small" onclick="editUser('${user.username}')">تعديل</button>
+                        ${user.username !== 'admin' ? `<button class="btn btn-danger btn-small" onclick="deleteUser('${user.username}')">حذف</button>` : ''}
+                    </td>
+                `;
+                
+                tableBody.appendChild(row);
+            });
         }
 
+        // تحميل قائمة الجهات
+        function loadAgenciesList() {
+            const tableBody = document.getElementById('agenciesTableBody');
+            const agencies = db.getAllAgencies();
+
+            tableBody.innerHTML = '';
+            
+            if (agencies.length === 0) {
+                tableBody.innerHTML = '<tr><td colspan="7">لا توجد جهات</td></tr>';
+                return;
+            }
+
+            agencies.forEach(agency => {
+                const row = document.createElement('tr');
+                
+                row.innerHTML = `
+                    <td>${agency.code}</td>
+                    <td>${agency.name}</td>
+                    <td>${agencyTypeNames[agency.type] || agency.type}</td>
+                    <td>${agency.city || 'غير محدد'}</td>
+                    <td>${formatDate(agency.createdAt)}</td>
+                    <td><span class="status-badge ${agency.status === 'active' ? 'status-completed' : 'status-pending'}">${agency.status === 'active' ? 'نشط' : 'معطل'}</span></td>
+                    <td>
+                        <button class="btn btn-warning btn-small" onclick="editAgency('${agency.code}')">تعديل</button>
+                        ${agency.code !== 'admin' ? `<button class="btn btn-danger btn-small" onclick="deleteAgency('${agency.code}')">حذف</button>` : ''}
+                    </td>
+                `;
+                
+                tableBody.appendChild(row);
+            });
+        }
+
+        // تحميل جميع العينات للأدمن
+        function loadAllSamples() {
+            const tableBody = document.getElementById('adminSamplesTableBody');
+            const samples = db.getAllSamples();
+
+            tableBody.innerHTML = '';
+            
+            if (samples.length === 0) {
+                tableBody.innerHTML = '<tr><td colspan="7">لا توجد عينات</td></tr>';
+                return;
+            }
+
+            samples.forEach(sample => {
+                const row = document.createElement('tr');
+                
+                const statusClass = `status-${sample.status}`;
+                const statusText = {
+                    'pending': 'معلقة',
+                    'processing': 'قيد المعالجة',
+                    'completed': 'مكتملة'
+                }[sample.status] || 'غير محدد';
+
+                row.innerHTML = `
+                    <td>${sample.sampleId}</td>
+                    <td>${sample.caseNumber}</td>
+                    <td>${getSampleTypeText(sample.sampleType)}</td>
+                    <td>${agencyNames[sample.registeredByAgency] || sample.registeredByAgency}</td>
+                    <td>${agencyNames[sample.targetAgency] || sample.targetAgency}</td>
+                    <td><span class="status-badge ${statusClass}">${statusText}</span></td>
+                    <td>
+                        <button class="btn btn-primary btn-small" onclick="viewSampleDetails('${sample.sampleId}')">عرض</button>
+                        <button class="btn btn-warning btn-small" onclick="editSample('${sample.sampleId}')">تعديل</button>
+                        <button class="btn btn-danger btn-small" onclick="deleteSample('${sample.sampleId}')">حذف</button>
+                    </td>
+                `;
+                
+                tableBody.appendChild(row);
+            });
+        }
+
+        function refreshAllSamples() {
+            loadAllSamples();
+            showNotification('تم تحديث القائمة', 'success');
+        }
+
+        // تحديث إحصائيات الأدمن
+        function updateAdminStats() {
+            const userStats = db.getUserStats();
+            const sampleStats = db.getStats();
+            const agencyStats = db.getAgencyStats();
+            const todaySamples = db.getTodaySamples();
+
+            document.getElementById('totalUsers').textContent = userStats.total;
+            document.getElementById('activeUsers').textContent = userStats.active;
+            document.getElementById('totalSamplesAdmin').textContent = sampleStats.total;
+            document.getElementById('todaySamples').textContent = todaySamples;
+            document.getElementById('totalAgencies').textContent = agencyStats.total;
+            document.getElementById('activeAgencies').textContent = agencyStats.active;
+        }
+
+        // إدارة التبويبات
         function showAdminTab(tabName) {
-            document.querySelectorAll('.admin-tab').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.tab-content').forEach(content => content.style.display = 'none');
+            // إخفاء جميع التبويبات
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // إزالة الفئة النشطة من جميع الأزرار
+            document.querySelectorAll('.admin-tab').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // إظهار التبويب المحدد
+            document.getElementById(tabName + 'Tab').classList.add('active');
             event.target.classList.add('active');
-            document.getElementById(tabName + 'Tab').style.display = 'block';
+            
+            // تحديث البيانات حسب التبويب
+            if (tabName === 'users') {
+                loadUsersList();
+            } else if (tabName === 'samples') {
+                loadAllSamples();
+            } else if (tabName === 'agencies') {
+                loadAgenciesList();
+            } else if (tabName === 'reports') {
+                updateAdminStats();
+            }
         }
 
-        // 🟢 ====================================================
-        // 🟢 تهيئة التطبيق
-        // 🟢 ====================================================
-        document.addEventListener('DOMContentLoaded', function() {
-            // تهيئة تاريخ اليوم في نموذج العينات
-            const now = new Date();
-            const dateInput = document.getElementById('collectionDate');
-            const timeInput = document.getElementById('receiptTime');
-            if (dateInput) dateInput.value = now.toISOString().split('T')[0];
-            if (timeInput) {
-                const localDateTime = new Date(now.getTime() - now.getTimezoneOffset() * 60000).toISOString().slice(0, 16);
-                timeInput.value = localDateTime;
+        // ==================== النوافذ المنبثقة ====================
+
+        // إضافة مستخدم جديد
+        document.getElementById('addUserForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const userData = {
+                username: document.getElementById('newUsername').value,
+                password: document.getElementById('newPassword').value,
+                agency: document.getElementById('newUserAgency').value,
+                role: document.getElementById('newUserRole').value
+            };
+
+            const result = db.addUser(userData);
+
+            if (result.success) {
+                showNotification('تم إضافة المستخدم بنجاح', 'success');
+                closeAddUserModal();
+                loadUsersList();
+                updateAdminStats();
+            } else {
+                showNotification(result.message, 'error');
+            }
+        });
+
+        // إضافة جهة جديدة
+        document.getElementById('addAgencyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const agencyData = {
+                code: document.getElementById('newAgencyCode').value,
+                name: document.getElementById('newAgencyName').value,
+                type: document.getElementById('newAgencyType').value,
+                city: document.getElementById('newAgencyCity').value,
+                description: document.getElementById('newAgencyDescription').value
+            };
+
+            const result = db.addAgency(agencyData);
+
+            if (result.success) {
+                showNotification('تم إضافة الجهة بنجاح', 'success');
+                closeAddAgencyModal();
+                loadAgenciesList();
+                updateAgencyNames();
+                updateAgencySelects();
+                updateAdminStats();
+            } else {
+                showNotification(result.message, 'error');
+            }
+        });
+
+        // تعديل العينة
+        document.getElementById('editSampleForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const sampleId = document.getElementById('editSampleId').value;
+            const updates = {
+                caseNumber: document.getElementById('editCaseNumber').value,
+                collectionDate: document.getElementById('editCollectionDate').value,
+                sampleType: document.getElementById('editSampleType').value,
+                quantity: document.getElementById('editQuantity').value,
+                collectionLocation: document.getElementById('editCollectionLocation').value,
+                status: document.getElementById('editStatus').value,
+                notes: document.getElementById('editNotes').value
+            };
+
+            const updatedSample = db.updateSample(sampleId, updates);
+
+            if (updatedSample) {
+                showNotification('تم تحديث العينة بنجاح', 'success');
+                closeEditSampleModal();
+                loadSamplesList();
+                loadAllSamples();
+                updateStats();
+            } else {
+                showNotification('حدث خطأ في تحديث العينة', 'error');
+            }
+        });
+
+        // تعديل بيانات المستخدم
+        document.getElementById('editUserForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const currentUsername = document.getElementById('editUserId').value;
+            const newUsername = document.getElementById('editNewUsername').value.trim();
+            const newPassword = document.getElementById('editNewPassword').value;
+            const confirmPassword = document.getElementById('editConfirmPassword').value;
+
+            // التحقق من تطابق كلمات المرور
+            if (newPassword !== confirmPassword) {
+                showNotification('كلمات المرور غير متطابقة', 'error');
+                return;
+            }
+
+            // التحقق من أن كلمة المرور ليست فارغة
+            if (!newPassword || newPassword.length < 3) {
+                showNotification('كلمة المرور يجب أن تكون 3 أحرف على الأقل', 'error');
+                return;
+            }
+
+            // التحقق من اسم المستخدم الجديد إذا تم إدخاله
+            if (newUsername && newUsername !== currentUsername) {
+                // التحقق من عدم وجود اسم مستخدم بنفس الاسم
+                const existingUser = db.users.find(u => u.username === newUsername);
+                if (existingUser) {
+                    showNotification('اسم المستخدم موجود بالفعل', 'error');
+                    return;
+                }
+            }
+
+            // تحديث البيانات
+            let updateSuccess = true;
+            if (newUsername && newUsername !== currentUsername) {
+                // تغيير اسم المستخدم
+                const oldUserIndex = db.users.findIndex(u => u.username === currentUsername);
+                if (oldUserIndex !== -1) {
+                    const oldUser = db.users[oldUserIndex];
+                    // تحديث بيانات المستخدم بـ username جديد وكلمة مرور جديدة فقط
+                    db.users[oldUserIndex] = {
+                        ...oldUser,
+                        username: newUsername,
+                        password: newPassword,
+                        lastPasswordUpdate: new Date().toISOString()
+                    };
+                    db.saveUsers();
+                } else {
+                    updateSuccess = false;
+                }
+            } else {
+                // تحديث كلمة المرور فقط
+                updateSuccess = db.updateUser(currentUsername, {
+                    password: newPassword
+                });
+            }
+
+            if (updateSuccess) {
+                showNotification('تم تحديث بيانات المستخدم بنجاح - استخدم البيانات الجديدة', 'success');
+                closeEditUserModal();
+                loadUsersList();
+                updateAdminStats();
+            } else {
+                showNotification('حدث خطأ في التحديث', 'error');
+            }
+        });
+
+        // ==================== وظائف عرض وتعديل العينات ====================
+
+        function viewSampleDetails(sampleId) {
+            const sample = db.getAllSamples().find(s => s.sampleId === sampleId);
+            if (sample) {
+                const details = `تفاصيل العينة ${sampleId}:\n\n` +
+                    `رقم القضية: ${sample.caseNumber || 'غير محدد'}\n` +
+                    `نوع العينة: ${getSampleTypeText(sample.sampleType)}\n` +
+                    `تاريخ الجمع: ${formatDate(sample.collectionDate)}\n` +
+                    `الكمية: ${sample.quantity || 'غير محدد'}\n` +
+                    `مكان الجمع: ${sample.collectionLocation || 'غير محدد'}\n` +
+                    `جامع العينة: ${sample.collectorName || 'غير محدد'}\n` +
+                    `الجهة المرسلة: ${agencyNames[sample.registeredByAgency] || sample.registeredByAgency}\n` +
+                    `الجهة المستقبلة: ${agencyNames[sample.targetAgency] || sample.targetAgency}\n` +
+                    `الحالة: ${sample.status}\n` +
+                    `حالة التحليل: ${sample.analysisStatus || 'غير محدد'}\n` +
+                    `تاريخ التسجيل: ${formatDateTime(sample.registrationTime)}\n` +
+                    `آخر تحديث: ${formatDateTime(sample.lastUpdated)}\n` +
+                    `ملاحظات: ${sample.notes || 'لا توجد'}\n`;
+
+                document.getElementById('viewSampleContent').textContent = details;
+                showModal('viewSampleModal');
+            }
+        }
+
+        function editSample(sampleId) {
+            const sample = db.getAllSamples().find(s => s.sampleId === sampleId);
+            if (sample) {
+                // التحقق من الصلاحية
+                if (currentUser.role !== 'admin' && currentUser.agency !== sample.targetAgency) {
+                    showNotification('ليس لديك صلاحية لتعديل هذه العينة', 'error');
+                    return;
+                }
+
+                // ملء النموذج بالبيانات الحالية
+                document.getElementById('editSampleId').value = sample.sampleId;
+                document.getElementById('editCaseNumber').value = sample.caseNumber;
+                document.getElementById('editCollectionDate').value = sample.collectionDate;
+                document.getElementById('editSampleType').value = sample.sampleType;
+                document.getElementById('editQuantity').value = sample.quantity || '';
+                document.getElementById('editCollectionLocation').value = sample.collectionLocation || '';
+                document.getElementById('editStatus').value = sample.status;
+                document.getElementById('editNotes').value = sample.notes || '';
+                
+                showModal('editSampleModal');
+            }
+        }
+
+        function deleteSample(sampleId) {
+            if (currentUser.role !== 'admin') {
+                showNotification('ليس لديك صلاحية لحذف العينات', 'error');
+                return;
+            }
+
+            if (confirm(`هل أنت متأكد من حذف العينة ${sampleId}؟`)) {
+                if (db.deleteSample(sampleId)) {
+                    showNotification('تم حذف العينة بنجاح', 'success');
+                    loadSamplesList();
+                    loadAllSamples();
+                    updateStats();
+                    updateAdminStats();
+                } else {
+                    showNotification('حدث خطأ في حذف العينة', 'error');
+                }
+            }
+        }
+
+        // ==================== وظائف إدارة المستخدمين والجهات ====================
+
+        function editUser(username) {
+            const user = db.users.find(u => u.username === username);
+            if (user) {
+                // ملء النموذج ببيانات المستخدم
+                document.getElementById('editUserId').value = username;
+                document.getElementById('editCurrentUsername').value = username;
+                document.getElementById('editNewUsername').value = '';
+                document.getElementById('editNewPassword').value = '';
+                document.getElementById('editConfirmPassword').value = '';
+                
+                showModal('editUserModal');
+            }
+        }
+
+        function deleteUser(username) {
+            if (confirm(`هل أنت متأكد من حذف المستخدم ${username}؟`)) {
+                if (db.deleteUser(username)) {
+                    showNotification('تم حذف المستخدم بنجاح', 'success');
+                    loadUsersList();
+                    updateAdminStats();
+                } else {
+                    showNotification('حدث خطأ في حذف المستخدم', 'error');
+                }
+            }
+        }
+
+        function editAgency(code) {
+            const agency = db.agencies.find(a => a.code === code);
+            if (agency) {
+                const newName = prompt(`تعديل اسم الجهة ${code}:`, agency.name);
+                if (newName && newName.trim()) {
+                    if (db.updateAgency(code, { name: newName.trim() })) {
+                        showNotification('تم تحديث اسم الجهة بنجاح', 'success');
+                        loadAgenciesList();
+                        updateAgencyNames();
+                        updateAgencySelects();
+                    } else {
+                        showNotification('حدث خطأ في التحديث', 'error');
+                    }
+                }
+            }
+        }
+
+        function deleteAgency(code) {
+            if (confirm(`هل أنت متأكد من حذف الجهة ${code}؟`)) {
+                if (db.deleteAgency(code)) {
+                    showNotification('تم حذف الجهة بنجاح', 'success');
+                    loadAgenciesList();
+                    updateAgencyNames();
+                    updateAgencySelects();
+                    updateAdminStats();
+                } else {
+                    showNotification('حدث خطأ في حذف الجهة', 'error');
+                }
+            }
+        }
+
+        // ==================== وظائف مساعدة ====================
+
+        function getSampleTypeText(type) {
+            const types = {
+                'blood': 'دم',
+                'urine': 'بول',
+                'hair': 'شعر',
+                'tissue': 'نسيج',
+                'other': 'أخرى'
+            };
+            return types[type] || type;
+        }
+
+        function getToxinName(toxin) {
+            const names = {
+                'opioids': 'الأفيونيات',
+                'benzodiazepines': 'البنزوديازيبينات',
+                'cannabis': 'الحشيش',
+                'amphetamines': 'المنشطات',
+                'alcohol': 'الكحول',
+                'cocaine': 'الكوكايين'
+            };
+            return names[toxin] || toxin;
+        }
+
+        function getStatusColor(status) {
+            const colors = {
+                'pending': '#ffeaa7',
+                'processing': '#74b9ff',
+                'completed': '#55efc4',
+                'جاهز للتحليل': '#ffeaa7',
+                'قيد التحضير': '#a29bfe',
+                'قيد الفحص الأولي': '#74b9ff',
+                'قيد التحليل المتقدم': '#fd79a8',
+                'قيد المراجعة النهائية': '#fdcb6e',
+                'مكتمل': '#55efc4'
+            };
+            return colors[status] || '#dfe6e9';
+        }
+
+        function getAnalysisStatusColor(status) {
+            const colors = {
+                'جاهز للتحليل': '#ffeaa7',
+                'قيد التحضير': '#a29bfe',
+                'قيد الفحص الأولي': '#74b9ff',
+                'قيد التحليل المتقدم': '#fd79a8',
+                'قيد المراجعة النهائية': '#fdcb6e',
+                'مكتمل': '#55efc4'
+            };
+            return colors[status] || '#dfe6e9';
+        }
+
+        function getAnalysisStatusText(status) {
+            const texts = {
+                'جاهز للتحليل': 'جاهز للتحليل',
+                'قيد التحضير': 'قيد التحضير',
+                'قيد الفحص الأولي': 'قيد الفحص الأولي',
+                'قيد التحليل المتقدم': 'قيد التحليل المتقدم',
+                'قيد المراجعة النهائية': 'قيد المراجعة النهائية',
+                'مكتمل': 'مكتمل'
+            };
+            return texts[status] || status;
+        }
+
+        function formatDate(dateString) {
+            if (!dateString) return 'غير محدد';
+            const date = new Date(dateString);
+            return date.toLocaleDateString('ar-EG');
+        }
+
+        function formatTime(dateString) {
+            if (!dateString) return 'غير محدد';
+            const date = new Date(dateString);
+            return date.toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' });
+        }
+
+        function formatDateTime(dateString) {
+            if (!dateString) return 'غير محدد';
+            const date = new Date(dateString);
+            return date.toLocaleString('ar-EG');
+        }
+
+        // ==================== إدارة النوافذ المنبثقة ====================
+
+        function showModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.style.display = 'none';
+                // إعادة تعيين النموذج إذا كان موجوداً
+                const form = modal.querySelector('form');
+                if (form) {
+                    form.reset();
+                }
+            }
+        }
+
+        function closeAllModals() {
+            const modals = ['addUserModal', 'editSampleModal', 'addAgencyModal', 'editUserModal', 'viewSampleModal'];
+            modals.forEach(modalId => closeModal(modalId));
+        }
+
+        function showAddUserModal() {
+            showModal('addUserModal');
+        }
+
+        function closeAddUserModal() {
+            closeModal('addUserModal');
+        }
+
+        function closeEditSampleModal() {
+            closeModal('editSampleModal');
+        }
+
+        function closeEditUserModal() {
+            closeModal('editUserModal');
+        }
+
+        function closeViewSampleModal() {
+            closeModal('viewSampleModal');
+        }
+
+        function showAddAgencyModal() {
+            showModal('addAgencyModal');
+        }
+
+        function closeAddAgencyModal() {
+            closeModal('addAgencyModal');
+        }
+
+        // ==================== وظائف النظام العامة ====================
+
+        function logout() {
+            currentUser = null;
+            selectedSample = null;
+            document.getElementById('userWelcome').textContent = '';
+            document.getElementById('loginForm').reset();
+            
+            // إزالة أيقونة الإدارة
+            const adminIcon = document.querySelector('.admin-panel');
+            if (adminIcon) {
+                adminIcon.remove();
             }
             
-            generateNewSampleId();
-            loadCustodyData();
-            loadAnalysisData();
+            navigateToPage('loginPage');
+            showNotification('تم تسجيل الخروج');
+        }
+
+        function showNotification(message, type = 'info') {
+            // إزالة أي إشعارات سابقة
+            const oldNotification = document.querySelector('.notification');
+            if (oldNotification) {
+                oldNotification.remove();
+            }
             
-            // تهيئة قائمة الجهات
-            const agencies = ['مختبر القاهرة', 'مختبر الجيزة', 'نيابة القاهرة', 'شرطة القاهرة'];
-            const select = document.getElementById('targetAgency');
-            agencies.forEach(agency => {
-                const option = document.createElement('option');
-                option.value = agency;
-                option.textContent = agency;
-                select.appendChild(option);
+            // إنشاء إشعار جديد
+            const notification = document.createElement('div');
+            notification.className = `notification ${type === 'error' ? 'error' : type === 'success' ? 'success' : ''}`;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            // إظهار الإشعار
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 10);
+            
+            // إخفاء الإشعار بعد 3 ثوانٍ
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 3000);
+        }
+
+        function updateAgencySelects() {
+            const agencies = db.getAllAgencies();
+            const selects = ['userAgency', 'targetAgency', 'newUserAgency'];
+            
+            selects.forEach(selectId => {
+                const select = document.getElementById(selectId);
+                if (select) {
+                    // الاحتفاظ بالقيمة المحددة
+                    const currentValue = select.value;
+                    
+                    // مسح الخيارات الحالية (عدا الخيار الأول)
+                    while (select.children.length > 1) {
+                        select.removeChild(select.lastChild);
+                    }
+                    
+                    // إضافة الجهات الجديدة
+                    agencies.forEach(agency => {
+                        if (selectId === 'userAgency' || agency.code !== 'admin') {
+                            const option = document.createElement('option');
+                            option.value = agency.code;
+                            option.textContent = agency.name;
+                            select.appendChild(option);
+                        }
+                    });
+                    
+                    // استعادة القيمة المحددة
+                    select.value = currentValue;
+                }
             });
-        });
+        }
+
+        function exportSamples() {
+            const samples = db.getAllSamples();
+            const csvContent = "data:text/csv;charset=utf-8," 
+                + "رقم العينة,رقم القضية,نوع العينة,تاريخ الجمع,الجهة المرسلة,الجهة المستقبلة,الحالة,حالة التحليل\n"
+                + samples.map(sample => 
+                    `${sample.sampleId},${sample.caseNumber},${getSampleTypeText(sample.sampleType)},${sample.collectionDate},${agencyNames[sample.registeredByAgency] || sample.registeredByAgency},${agencyNames[sample.targetAgency] || sample.targetAgency},${sample.status},${sample.analysisStatus || 'غير محدد'}`
+                ).join("\n");
+
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", `toxitrack_samples_${new Date().toISOString().split('T')[0]}.csv`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            showNotification('تم تصدير البيانات بنجاح', 'success');
+        }
+
+        // ==================== التحديث التلقائي ====================
+
+        // تحديث الإحصائيات كل دقيقة
+        setInterval(() => {
+            if (currentUser) {
+                updateStats();
+                if (currentUser.role === 'admin') {
+                    updateAdminStats();
+                }
+            }
+        }, 60000);
+
+        // حفظ تلقائي للبيانات كل 5 دقائق
+        setInterval(() => {
+            if (currentUser) {
+                db.saveSamples();
+                db.saveUsers();
+                db.saveAgencies();
+                db.saveCustodyEvents();
+                db.saveAnalysisResults();
+                console.log('تم الحفظ التلقائي للبيانات');
+            }
+        }, 300000);
+
+        // تحديث التنسيق عند تغيير حجم الشاشة
+        function updateLayout() {
+            const isMobile = window.innerWidth <= 768;
+            const html = document.documentElement;
+            
+            if (isMobile) {
+                html.style.fontSize = '14px';
+            } else {
+                html.style.fontSize = '16px';
+            }
+        }
+        
+        window.addEventListener('resize', updateLayout);
+        updateLayout();
     </script>
 </body>
 </html>
