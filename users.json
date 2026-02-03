@@ -125,7 +125,8 @@ app.use((req, res) => {
 // بدء السيرفر
 app.listen(PORT, () => {
     console.log('✅ ToxiTrack Server Started!');
-    console.log(`📡 Open: http://localhost:${PORT}`);
-    console.log(`📡 Open: http://localhost:${PORT}/1111.html`);
+    console.log(`📡 Open: http://localhost:${3000}`);
+    console.log(`📡 Open: http://localhost:${3000}/index.html`);
     console.log('Press Ctrl+C to stop the server');
+
 });
