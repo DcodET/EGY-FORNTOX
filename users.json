@@ -1,132 +1,272 @@
-const express = require('express');
-const path = require('path');
-const fs = require('fs');
-const app = express();
-const PORT = 3000;
-
-// Middleware
-app.use(express.static(path.join(__dirname, '.')));
-app.use(express.json());
-
-// Routes
-
-// صفحة الرئيسية
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '1111.html'));
-});
-
-// الحصول على بيانات المستخدمين
-app.get('/api/users', (req, res) => {
-    try {
-        const usersData = fs.readFileSync(path.join(__dirname, 'users.json'), 'utf8');
-        res.json(JSON.parse(usersData));
-    } catch (error) {
-        res.status(500).json({ error: 'خطأ في قراءة بيانات المستخدمين' });
-    }
-});
-
-// إضافة مستخدم جديد
-app.post('/api/users', (req, res) => {
-    try {
-        const usersData = fs.readFileSync(path.join(__dirname, 'users.json'), 'utf8');
-        let users = JSON.parse(usersData);
-
-        // التحقق من عدم وجود المستخدم
-        if (users.some(u => u.username === req.body.username)) {
-            return res.status(400).json({ error: 'المستخدم موجود بالفعل' });
+{
+  "project": {
+    "name": "ToxiTrack - نظام إدارة العينات السُمية",
+    "version": "1.0.0",
+    "description": "نظام متكامل لإدارة وتسجيل وتتبع العينات السُمية في المختبرات",
+    "author": "ToxiTrack Team",
+    "created": "2024",
+    "rtl": true,
+    "language": "ar"
+  },
+  "database": {
+    "name": "toxitrack_db",
+    "version": "1.0",
+    "tables": {
+      "users": [
+        {
+          "id": 1,
+          "username": "admin",
+          "password": "admin123",
+          "fullName": "مدير النظام",
+          "role": "administrator",
+          "email": "admin@toxitrack.com",
+          "phone": "+966500000000",
+          "department": "الإدارة",
+          "isActive": true,
+          "createdAt": "2024-01-01T00:00:00.000Z",
+          "permissions": [
+            "all"
+          ]
+        },
+        {
+          "id": 2,
+          "username": "lab1",
+          "password": "lab123",
+          "fullName": "أحمد محمد",
+          "role": "lab_technician",
+          "email": "lab1@toxitrack.com",
+          "phone": "+966511111111",
+          "department": "المختبر المركزي",
+          "isActive": true,
+          "createdAt": "2024-01-02T00:00:00.000Z",
+          "permissions": [
+            "register_samples",
+            "view_samples",
+            "update_analysis"
+          ]
         }
-
-        // إضافة المستخدم الجديد
-        const newUser = {
-            ...req.body,
-            createdAt: new Date().toISOString(),
-            status: 'active'
-        };
-        users.push(newUser);
-
-        // حفظ البيانات
-        fs.writeFileSync(path.join(__dirname, 'users.json'), JSON.stringify(users, null, 2));
-        res.status(201).json(newUser);
-    } catch (error) {
-        res.status(500).json({ error: 'خطأ في إضافة المستخدم' });
-    }
-});
-
-// تحديث بيانات المستخدم
-app.put('/api/users/:username', (req, res) => {
-    try {
-        const usersData = fs.readFileSync(path.join(__dirname, 'users.json'), 'utf8');
-        let users = JSON.parse(usersData);
-
-        const userIndex = users.findIndex(u => u.username === req.params.username);
-        if (userIndex === -1) {
-            return res.status(404).json({ error: 'المستخدم غير موجود' });
+      ],
+      "samples": [
+        {
+          "id": "TT-2024-001",
+          "patientName": "محمد عبدالله",
+          "patientAge": 35,
+          "patientGender": "ذكر",
+          "sampleType": "دم",
+          "collectionDate": "2024-01-15",
+          "collectionTime": "10:30",
+          "collectionLocation": "مستشفى الملك فيصل التخصصي",
+          "collectorName": "د. علي أحمد",
+          "priority": "عالي",
+          "status": "مسجل",
+          "testsRequested": [
+            "تحليل المعادن الثقيلة",
+            "تحليل المبيدات",
+            "تحليل الأدوية"
+          ],
+          "notes": "عينة عاجلة - حالة مشتبه بتسمم",
+          "createdBy": 2,
+          "createdAt": "2024-01-15T10:30:00.000Z",
+          "barcode": "TT00120240115"
         }
-
-        // تحديث البيانات
-        users[userIndex] = {
-            ...users[userIndex],
-            ...req.body,
-            lastUpdated: new Date().toISOString()
-        };
-
-        // حفظ البيانات
-        fs.writeFileSync(path.join(__dirname, 'users.json'), JSON.stringify(users, null, 2));
-        res.json(users[userIndex]);
-    } catch (error) {
-        res.status(500).json({ error: 'خطأ في تحديث بيانات المستخدم' });
-    }
-});
-
-// حذف المستخدم
-app.delete('/api/users/:username', (req, res) => {
-    try {
-        const usersData = fs.readFileSync(path.join(__dirname, 'users.json'), 'utf8');
-        let users = JSON.parse(usersData);
-
-        const userIndex = users.findIndex(u => u.username === req.params.username);
-        if (userIndex === -1) {
-            return res.status(404).json({ error: 'المستخدم غير موجود' });
+      ],
+      "chain_of_custody": [
+        {
+          "id": 1,
+          "sampleId": "TT-2024-001",
+          "fromUser": 2,
+          "toUser": 3,
+          "transferDate": "2024-01-15T11:00:00.000Z",
+          "transferReason": "نقل إلى قسم التحليل",
+          "location": "المختبر المركزي",
+          "receivedBy": 3,
+          "notes": "تم النقل بشكل آمن",
+          "signature": "توقيع رقمي"
         }
-
-        // تعطيل المستخدم بدلاً من حذفه
-        users[userIndex].status = 'inactive';
-
-        // حفظ البيانات
-        fs.writeFileSync(path.join(__dirname, 'users.json'), JSON.stringify(users, null, 2));
-        res.json({ message: 'تم تعطيل المستخدم بنجاح' });
-    } catch (error) {
-        res.status(500).json({ error: 'خطأ في حذف المستخدم' });
+      ],
+      "analyses": [
+        {
+          "id": 1,
+          "sampleId": "TT-2024-001",
+          "analystId": 3,
+          "analysisDate": "2024-01-16",
+          "analysisTime": "09:00",
+          "testName": "تحليل المعادن الثقيلة",
+          "result": "إيجابي",
+          "resultDetails": "تم العثور على نسبة 0.5 ملغم/لتر من الرصاص",
+          "instrumentUsed": "جهاز ICP-MS",
+          "methodology": "طريقة الطيف الكتلي",
+          "status": "مكتمل",
+          "reviewedBy": 1,
+          "reviewedAt": "2024-01-16T14:00:00.000Z"
+        }
+      ],
+      "reports": [
+        {
+          "id": 1,
+          "sampleId": "TT-2024-001",
+          "reportDate": "2024-01-17",
+          "generatedBy": 1,
+          "reportContent": "تقرير التحليل الكامل للعينة TT-2024-001",
+          "conclusions": "تسمم بالرصاص بتركيز متوسط",
+          "recommendations": "يوصى بالعلاج الفوري ومتابعة الحالة",
+          "status": "مكتمل",
+          "sentTo": "مستشفى الملك فيصل التخصصي"
+        }
+      ],
+      "departments": [
+        {
+          "id": 1,
+          "name": "المختبر المركزي",
+          "code": "LAB01",
+          "location": "الطابق الثالث - المبنى الرئيسي",
+          "head": "د. سعيد خالد",
+          "phone": "+96611223344"
+        },
+        {
+          "id": 2,
+          "name": "قسم السموم",
+          "code": "TOX01",
+          "location": "الطابق الرابع - المبنى الجديد",
+          "head": "د. فاطمة محمد",
+          "phone": "+96611223355"
+        }
+      ],
+      "test_types": [
+        {
+          "id": 1,
+          "name": "تحليل المعادن الثقيلة",
+          "code": "HM01",
+          "description": "تحليل للكشف عن المعادن الثقيلة في العينات البيولوجية",
+          "duration": "48 ساعة",
+          "price": 500,
+          "category": "السموم المعدنية"
+        },
+        {
+          "id": 2,
+          "name": "تحليل المبيدات",
+          "code": "PST01",
+          "description": "فحص متكامل للكشف عن بقايا المبيدات",
+          "duration": "72 ساعة",
+          "price": 750,
+          "category": "السموم الكيميائية"
+        }
+      ]
     }
-});
-
-// صفحة الخطأ 404
-app.use((req, res) => {
-    res.status(404).send(`
-        <!DOCTYPE html>
-        <html lang="ar" dir="rtl">
-        <head>
-            <meta charset="UTF-8">
-            <title>الصفحة غير موجودة</title>
-            <style>
-                body { font-family: Arial; text-align: center; padding: 50px; background: #f0f2f5; }
-                h1 { color: #e74c3c; }
-            </style>
-        </head>
-        <body>
-            <h1>❌ الصفحة غير موجودة</h1>
-            <p>الصفحة التي تبحث عنها غير موجودة.</p>
-            <a href="/">العودة للرئيسية</a>
-        </body>
-        </html>
-    `);
-});
-
-// بدء السيرفر
-app.listen(PORT, () => {
-    console.log('✅ ToxiTrack Server Started!');
-    console.log(`📡 Open: http://localhost:${3000}`);
-    console.log(`📡 Open: http://localhost:${3000}/index.html`);
-    console.log('Press Ctrl+C to stop the server');
-
-});
+  },
+  "settings": {
+    "app": {
+      "name": "ToxiTrack",
+      "logo": "logo.png",
+      "theme": {
+        "primaryColor": "#667eea",
+        "secondaryColor": "#764ba2",
+        "fontFamily": "Tajawal"
+      },
+      "language": "ar",
+      "rtl": true
+    },
+    "security": {
+      "sessionTimeout": 30,
+      "maxLoginAttempts": 5,
+      "passwordPolicy": {
+        "minLength": 8,
+        "requireUppercase": true,
+        "requireNumbers": true,
+        "requireSpecialChars": true
+      }
+    },
+    "sample": {
+      "idPrefix": "TT",
+      "autoGenerateId": true,
+      "defaultPriority": "متوسط",
+      "retentionPeriod": 365
+    }
+  },
+  "navigation": {
+    "main_menu": [
+      {
+        "id": "dashboard",
+        "name": "لوحة التحكم",
+        "icon": "📊",
+        "path": "/dashboard",
+        "roles": ["all"]
+      },
+      {
+        "id": "register_sample",
+        "name": "تسجيل عينة جديدة",
+        "icon": "➕",
+        "path": "/register-sample",
+        "roles": ["lab_technician", "administrator"]
+      },
+      {
+        "id": "samples_list",
+        "name": "قائمة العينات",
+        "icon": "📋",
+        "path": "/samples",
+        "roles": ["all"]
+      },
+      {
+        "id": "chain_of_custody",
+        "name": "سلسلة الحفظ",
+        "icon": "🔗",
+        "path": "/chain-of-custody",
+        "roles": ["lab_technician", "administrator"]
+      },
+      {
+        "id": "analysis",
+        "name": "التحاليل والنتائج",
+        "icon": "🔬",
+        "path": "/analysis",
+        "roles": ["analyst", "administrator"]
+      },
+      {
+        "id": "reports",
+        "name": "التقارير",
+        "icon": "📄",
+        "path": "/reports",
+        "roles": ["all"]
+      },
+      {
+        "id": "admin_panel",
+        "name": "لوحة الإدارة",
+        "icon": "⚙️",
+        "path": "/admin",
+        "roles": ["administrator"]
+      }
+    ]
+  },
+  "status_codes": {
+    "sample": {
+      "registered": "مسجل",
+      "in_transit": "قيد النقل",
+      "in_lab": "في المختبر",
+      "under_analysis": "قيد التحليل",
+      "analysis_complete": "اكتمل التحليل",
+      "reported": "تم التقرير",
+      "archived": "مؤرشف"
+    },
+    "priority": {
+      "low": "منخفض",
+      "medium": "متوسط",
+      "high": "عالي",
+      "critical": "حرج"
+    },
+    "result": {
+      "positive": "إيجابي",
+      "negative": "سلبي",
+      "inconclusive": "غير حاسم",
+      "pending": "قيد الانتظار"
+    }
+  },
+  "default_admin": {
+    "username": "admin",
+    "password": "admin123",
+    "role": "administrator",
+    "fullName": "مدير النظام",
+    "email": "admin@toxitrack.com",
+    "permissions": ["all"],
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "isActive": true
+  }
+}
